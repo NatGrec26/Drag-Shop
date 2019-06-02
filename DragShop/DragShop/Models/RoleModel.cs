@@ -9,13 +9,5 @@ namespace DragShop.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
-
-        // hola soy prueba
-
-        //hola prueba dos
-
-        //hola prueba 3
-
-        //jjajaj
     }
 }
