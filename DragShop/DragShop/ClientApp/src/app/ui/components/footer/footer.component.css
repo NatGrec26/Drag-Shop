@@ -1,0 +1,183 @@
+a:hover{
+    text-decoration:none;
+}
+
+
+.email h2, .email p {
+    color:black;
+    font-weight: 600;
+}
+
+#email-adresi {
+    margin-top: 20px;
+    border: none;
+    width:50%;
+    height:40px;
+    padding-left:10px;
+}
+
+.footer {
+    padding:50px 0px;
+	color: white;
+    background-color:#222;
+}
+
+.footer h3 {
+	color: white;
+	font-size:18px;
+	text-transform: uppercase;
+    margin-bottom:20px;
+}
+
+.footer ul {
+	font-size: 13px;
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	margin-top: 15px;
+	color: #7F8C8D;
+}
+
+.footer ul li a {
+	padding: 10px 0px;
+    display: block;
+    color: #ccc;
+    font-size: 16px;
+}
+
+.footer ul li a:hover{
+	color: grey;
+}
+
+.footer-bottom{
+  	background-color: black;
+    color: #282c2d;
+    font-size: 12px;
+	text-align: left;
+  	height: 50px;
+    line-height: 50px;
+}
+
+.footer-bottom p{
+	font-size:13px;
+    color: #FFF;
+    margin-left: 10px;
+}
+
+.footer-top{
+	background-color: #f7f7f7;
+    text-align: center;
+}
+
+.footer-top .social-icons{
+   padding:20px 0px;
+}
+
+.footer-top .social-icons i{
+	padding:0px 15px;
+	font-size:20px;
+	color:#222;
+}
+.social{
+    padding: 20px;
+}
+
+.footer-top .social-icons i:hover{
+	color: #E98705; 
+}
+
+.logo{
+   color:#FFF;
+   font-size:30px;
+   font-weight:600;
+}
+
+.under{
+    position: relative;
+   }
+
+.ovver{
+position: absolute;
+}
+
+.center {
+    position: absolute;
+    top: 15%;
+    text-align: center;
+    margin-left: 43%;
+    font-size: 30px;
+    color:black;
+}
+
+.over{
+    position: absolute;
+    top: 33%;
+    margin-left: 20%;
+}
+
+.textCen{
+    font-size: 18px;
+    font-weight: 19px;
+    color: black;
+}
+
+.centerIcon1{
+    margin-left: 150px;
+}
+.centerIcon2{
+    margin-left: 150px;
+}
+.centerIcon3{
+    margin-left: 150px;
+}
+
+.my-social-btn {
+    background: lightgrey;
+}
+
+a.btn.btn-circle.my-social-btn.fb:hover {
+    background: #205b9f;
+}
+
+a.btn.btn-circle.my-social-btn.twitter:hover {
+    background: #00ace3;
+}
+
+a.btn.btn-circle.my-social-btn {
+    color: #fff;
+    margin: 0px;
+    margin-top: 0px;
+}
+
+.letterLi{
+    font-size: 15px;
+}
+
+
+div.masthead {
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+div.masthead .overlay{
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+   
+}
+
+@media (min-width:768px) {
+    div.masthead {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+    div.masthead h1 {
+        font-size: 45px;
+    }
+}
