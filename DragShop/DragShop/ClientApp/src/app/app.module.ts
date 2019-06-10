@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import {UiModule} from './ui/ui.module';
+import {ContactModule} from './contact/contact.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {UiModule} from './ui/ui.module';
       { path: 'fetch-data', component: FetchDataComponent },
     ]),
     UiModule,
+    ContactModule
 
   ],
   providers: [],
