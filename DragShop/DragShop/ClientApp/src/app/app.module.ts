@@ -11,13 +11,17 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CheckoutModule } from './checkout/checkout.module';
 import { AboutUsModule } from './about-us/about-us.module';
+import {UiModule} from './ui/ui.module';
+import {ContactModule} from './contact/contact.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,6 +34,9 @@ import { AboutUsModule } from './about-us/about-us.module';
     ]),
     CheckoutModule,
     AboutUsModule,
+    UiModule,
+    ContactModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
