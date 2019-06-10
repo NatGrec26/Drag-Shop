@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-50">
+        <h3 class="littleLetter">Detalle de la compra</h3>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+
+            <span class="input-group-text letter">Persona: <span class="requiered">*</span></span>
+          </div>
+          <input type="text" required class="form-control border1 letter" placeholder="Nombre">
+          <input type="text" class="form-control border1 letter" placeholder="Apellido">
+        </div>
+        <div class="form-group">
+          <label class="littleLetter">Correo electrónico:<span class="requiered">*</span></label>
+          <div class="input-group mb-3">
+            <input class="form-control border1 letter" type="text" placeholder="Su correo electrónico">
+            <div class="input-group-append ">
+              <span class="input-group-text letter">@ejemplo.com</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-50">
+        <h3 class="littleLetter">Pago</h3>
+        <div class="form-group">
+          <label for="comment" class="littleLetter"> Algún otro detalle:
+          </label>
+          <textarea class="form-control border1" rows="5" id="comment" type="text"></textarea>
+        </div>
+
+        <label for="fname" class="littleLetter">Pago con Paypal</label>
+        <div class="center1">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="jhonnyrodriguez214@gmail.com">
+            <input type="hidden" name="lc" value="AL">
+            <input type="hidden" name="item_name" value="Cafe Miel">
+            <input type="hidden" name="item_number" value="3">
+            <input type="hidden" name="amount" value="8.00">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="button_subtype" value="services">
+            <input type="hidden" name="no_note" value="0">
+            <input type="hidden" name="tax_rate" value="2.000">
+            <input type="hidden" name="shipping" value="2.00">
+            <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+            <input type="image" src="https://www.paypalobjects.com/es_XC/AR/i/btn/btn_buynowCC_LG.gif" border="0"
+              name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+          </form>
+        </div>
+        <button type="submit" class="btn btn-block center">Pagar</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 littleLetter">
+          <h6 class="littleLetter">Carro de compras </h6>
+        </div>
+        <div class="col-md-4">
+          <span style="color:black">
+            <i class="fa fa-shopping-cart">
+              <b>Cantidad de artículos 2</b>
+            </i>
+          </span>
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <div class="col-md-8 littleLetter">
+            <span>Maquillaje</span>
+          </div>
+
+          <div class="col-md-4">
+            <span>₡ 10000</span>
+          </div>
+          <div class="col-md-8 littleLetter">
+            <span>Pelucas</span>
+          </div>
+
+          <div class="col-md-4">
+            <span>₡ 20000</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 littleLetter">
+          <span>Total</span>
+        </div>
+        <div class="col-md-6">
+          <span>₡ 0.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
