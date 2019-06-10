@@ -5,3 +5,15 @@
 .general-letter {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
+
+.page-title{
+    font-size: 28px;
+}
+
+.subtitle{
+    font-size: 20px;
+}
+
+.normal-text{
+    font-size: 18px;
+}

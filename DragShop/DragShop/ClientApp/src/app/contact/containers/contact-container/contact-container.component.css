@@ -3,7 +3,6 @@
     height: 60px;
     background: rgba(78, 76, 76, 0.2);
     color: azure;
-    font-size: 130%;
     align-content: center;
     font-variant-position: super;
 }
@@ -48,17 +47,8 @@ button.btn {
     cursor: auto;
 }
 
-label {
-    font-size: 18px;
-}
-
-.letter{
-    font-size: 18px;
-}
-
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  
     margin: auto;
   
   }
@@ -71,11 +61,6 @@ label {
       padding: 10px;
   }
 
-  .letterH1{
-      font-size: 20px;
-  }
-
-
   .divMargin{
     margin-left: 10%;
   }
@@ -87,7 +72,6 @@ label {
 
  .social-icons i{
 	padding:0px 15px;
-	font-size:20px;
 	color: #aaa;
 }
 .social{
