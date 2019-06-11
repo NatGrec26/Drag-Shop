@@ -13,6 +13,7 @@ import { CheckoutModule } from './checkout/checkout.module';
 import { AboutUsModule } from './about-us/about-us.module';
 import {UiModule} from './ui/ui.module';
 import {ContactModule} from './contact/contact.module';
+import { GalleryModule } from './gallery/gallery.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {ContactModule} from './contact/contact.module';
     CheckoutModule,
     AboutUsModule,
     UiModule,
-    ContactModule
+    ContactModule,
+    GalleryModule
 
   ],
   providers: [],
