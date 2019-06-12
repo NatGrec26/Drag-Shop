@@ -13,7 +13,8 @@ import { CheckoutModule } from './checkout/checkout.module';
 import { AboutUsModule } from './about-us/about-us.module';
 import {UiModule} from './ui/ui.module';
 import {ContactModule} from './contact/contact.module';
-
+import {TutorialsModule} from './tutorials/tutorials.module'
+import {ProductsModule} from './products/products.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,9 @@ import {ContactModule} from './contact/contact.module';
     CheckoutModule,
     AboutUsModule,
     UiModule,
-    ContactModule
+    ContactModule,
+    TutorialsModule,
+    ProductsModule,
 
   ],
   providers: [],
