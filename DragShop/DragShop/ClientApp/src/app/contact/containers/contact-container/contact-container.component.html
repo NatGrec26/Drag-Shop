@@ -1,19 +1,32 @@
+<div class="general-letter">
+  <label>Usted está en: <i class="fa fa-home" [routerLink]='["/"]'> Inicio</i> / Contacto</label>
+</div>
+<div>
+  <h1 class="page-title general-letter">Contáctenos</h1>
+</div>
+<div class='container'>
+  <a href="https://www.google.com/maps/search/multiplaza+escazu+costa+rica/@9.9532288,-84.1517891,12.82z">
+    <img class="img-fluid" src="assets/mapa.PNG">
+  </a>
+</div>
+
 <div class="container general-letter">
   <div class="row">
     <div class="col-sm-4" style="padding: 3%;">
-      <div class="sizelabel">
+      <div>
         <div class="positionLetter color">
-          <a class="letterH1 general-letter"><i class="fa fa-users" aria-hidden="true"></i> Contactos</a>
+          <a class="subtitle general-letter" style="color: white"><i class="fa fa-users" aria-hidden="true"></i>
+            Contactos</a>
         </div>
       </div>
-      <div>
+      <div class="general-letter normal-letter">
         <br>
         <i class="fa fa-phone fa-lg paddIcon" aria-hidden="true"></i><label>(506)+ 2494-4522</label><br>
-        <div class="divMargin">
+        <div class="divMargin general-letter">
           <div class="container">
-            <div class="row" >
-              <label> (506)+ 8574-2362</label>
-              <label> (506)+ 7863-2102</label>
+            <div class="">
+              <label> (506)+ 8574-2362</label><br>
+              <label> (506)+ 7863-2102</label><br>
               <label> (506)+ 8788-2121</label>
             </div>
           </div>
@@ -36,11 +49,11 @@
         <div class="input-group mb-3">
           <div class="form-group">
             <div class="input-group-prepend">
-              <span class="input-group-text letter">Persona <span class="requiered">*</span></span>
+              <span class="input-group-text normal-text">Persona <span class="requiered">*</span></span>
             </div>
           </div>
           <div class="form-group">
-            <input type="text" formControlName="firstName" required class="form-control border1 letter"
+            <input type="text" formControlName="firstName" required class="form-control border1 normal-text"
               placeholder="Nombre"
               [ngClass]="{'is-invalid': contactForm.get('firstName').touched && contactForm.get('firstName').invalid}">
             <div *ngIf="contactForm.get('firstName').touched && contactForm.get('firstName').invalid"
@@ -51,7 +64,8 @@
             </div>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control border1 letter" placeholder="Apellido" formControlName="lastName"
+            <input type="text" class="form-control border1 normal-text" placeholder="Apellido"
+              formControlName="lastName"
               [ngClass]="{'is-invalid': contactForm.get('lastName').touched && contactForm.get('lastName').invalid}">
             <div *ngIf="contactForm.get('lastName').touched && contactForm.get('lastName').invalid"
               class="invalid-feedback">
@@ -63,7 +77,7 @@
         </div>
         <div class="form-group">
           <label>Numero de teléfono o celular: </label><span class="requiered">*</span>
-          <input class="form-control input-group border1 letter" type="text" required placeholder="XXXX-XXXX"
+          <input class="form-control input-group border1 normal-text" type="text" required placeholder="XXXX-XXXX"
             formControlName="phoneNumber"
             [ngClass]="{'is-invalid': contactForm.get('phoneNumber').touched && contactForm.get('phoneNumber').invalid}">
           <div *ngIf="contactForm.get('phoneNumber').touched && contactForm.get('phoneNumber').invalid"
@@ -77,11 +91,11 @@
           <label> Correo electrónico: </label>
           <span class="requiered">*</span><br>
           <div class="input-group mb-3">
-            <input class="form-control formControlName border1 letter" type="text" formControlName="email" required
+            <input class="form-control formControlName border1 normal-text" type="text" formControlName="email" required
               placeholder="Su correo electrónico"
               [ngClass]="{'is-invalid': contactForm.get('email').touched && contactForm.get('email').invalid}">
             <div class="input-group-append ">
-              <span class="input-group-text letter">@ejemplo.com</span>
+              <span class="input-group-text normal-text">@ejemplo.com</span>
             </div>
             <div *ngIf="contactForm.get('email').touched && contactForm.get('email').invalid" class="invalid-feedback">
               <div *ngIf="contactForm.get('email').errors.required">Correo es requerido</div>
@@ -93,7 +107,7 @@
         <div class="form-group">
           <label for="comment"> Mensaje:</label>
           <span class="requiered">*</span>
-          <textarea class="form-control border1 letter" rows="5" id="comment" type="text" formControlName="message"
+          <textarea class="form-control border1 normal-text" rows="5" id="comment" type="text" formControlName="message"
             required
             [ngClass]="{'is-invalid': contactForm.get('message').touched && contactForm.get('message').invalid}"></textarea>
           <div *ngIf="contactForm.get('message').touched && contactForm.get('message').invalid"
@@ -104,7 +118,7 @@
         </div>
         <div class=container>
           <div class="row float-right">
-            <button type="submit" class="btn btn-block center letter " [disabled]="!contactForm.valid">Enviar
+            <button type="submit" class="btn btn-block center normal-text " [disabled]="!contactForm.valid">Enviar
               Mensaje</button>
             <br>
             <br>

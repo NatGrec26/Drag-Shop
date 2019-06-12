@@ -1,0 +1,35 @@
+h2 {
+    margin-left: 80px;
+    font-family: "verdana";
+}
+
+.margen {
+    top: 60px;
+    float: initial;
+    float: right;
+}
+
+button.btn {
+    background-color: rgb(41, 41, 41);
+    color: #fff;
+    cursor: auto;
+    font-family: "Verdana";
+    font-size: 18px;
+}
+
+.typeletter {
+    font-family: "Verdana";
+    font-size: 18px;
+}
+
+h2 {
+    font-family: "Verdana";
+    font-size: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Verdana";
+    font-size: 28px;
+    text-align: center;
+}
