@@ -14,6 +14,7 @@ import { AboutUsModule } from './about-us/about-us.module';
 import {UiModule} from './ui/ui.module';
 import {ContactModule} from './contact/contact.module';
 import { GalleryModule } from './gallery/gallery.module';
+import {ShoppingCartModule} from './shopping-cart/shopping-cart.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { GalleryModule } from './gallery/gallery.module';
     AboutUsModule,
     UiModule,
     ContactModule,
-    GalleryModule
+    GalleryModule,
+    ShoppingCartModule
 
   ],
   providers: [],
