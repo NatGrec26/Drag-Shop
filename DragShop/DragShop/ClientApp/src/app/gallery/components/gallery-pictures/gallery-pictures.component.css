@@ -1,0 +1,35 @@
+
+.btn:focus, .btn:active, button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#image-gallery .modal-footer{
+  display: block;
+}
+
+.thumb{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+label {
+    font-family: "Verdana";
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 20px;
+
+    font-family: "Verdana";
+  }
+  
+  h1 {
+    font-size: 28px;
+
+    font-family: "Verdana";
+  }
+  h3 {
+    font-size: 17px;
+
+    font-family: "Verdana";
+  }

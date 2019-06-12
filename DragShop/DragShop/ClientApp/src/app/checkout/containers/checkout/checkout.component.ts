@@ -1,6 +1,3 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
-
 import {
   createGenericErrorResponse,
   createServerResponseHandler,
@@ -8,7 +5,11 @@ import {
   ServerResponseHandler,
   createdNotFoundErrorResponse
 } from '../../../utils/server-response-handler';
+import { FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CheckoutFormService } from '../../services/checkout-form.component';
 
 @Component({
   selector: 'app-checkout-component',
@@ -17,17 +18,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CheckoutComponent implements OnInit {
   serverResponseHandler: ServerResponseHandler;
-
+  checkoutForm: FormGroup;
 
   constructor(
     private router: ActivatedRoute,
+    private checkoutFormService: CheckoutFormService,
   ) { }
   ngOnInit() {
+    this.initForm();
   }
 
-
-  
-
+  initForm() {
+    this.checkoutForm = this.checkoutFormService.initForm();
+  }
 
   handleHttpErrorMessage(httpErrorResponse: HttpErrorResponse) {
     if (httpErrorResponse.status === 400) {
@@ -45,19 +48,11 @@ export class CheckoutComponent implements OnInit {
       const error = httpErrorResponse.error;
       if (error.errorType === 'total_amount_incorrect') {
         this.serverResponseHandler = createServerResponseHandler(
-          'El total de la orden no supera los 6000 colones, debe ser un monto mayor para este servicio.', false, 400, 'error'
+          '', false, 400, 'error'
         );
-      } else if (error.errorType === 'not_same_day') {
+      }  else if (error.errorType === 'more_than_max_counter') {
         this.serverResponseHandler = createServerResponseHandler(
-          'El día del horario no coincide con el día de la fecha que selecciono.', false, 400, 'error'
-        );
-      } else if (error.errorType === 'cant_be_today') {
-        this.serverResponseHandler = createServerResponseHandler(
-          'Las entregas express no pueden ser para hoy mismo.', false, 400, 'error'
-        );
-      } else if (error.errorType === 'more_than_max_counter') {
-        this.serverResponseHandler = createServerResponseHandler(
-          'Disculpe, el horario y fecha seleccionado ya contiene el máximo de ordenes por entregar.', false, 400, 'error'
+          '', false, 400, 'error'
         );
       }
     } else {

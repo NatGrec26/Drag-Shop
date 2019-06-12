@@ -13,8 +13,13 @@ import { CheckoutModule } from './checkout/checkout.module';
 import { AboutUsModule } from './about-us/about-us.module';
 import {UiModule} from './ui/ui.module';
 import {ContactModule} from './contact/contact.module';
+
 import {TutorialsModule} from './tutorials/tutorials.module'
 import {ProductsModule} from './products/products.module'
+
+import { GalleryModule } from './gallery/gallery.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,8 +42,12 @@ import {ProductsModule} from './products/products.module'
     AboutUsModule,
     UiModule,
     ContactModule,
+
     TutorialsModule,
     ProductsModule,
+
+    GalleryModule
+
 
   ],
   providers: [],
