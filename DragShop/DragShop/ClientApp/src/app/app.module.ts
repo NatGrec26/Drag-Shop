@@ -17,6 +17,7 @@ import {TutorialsModule} from './tutorials/tutorials.module';
 import {ProductsModule} from './products/products.module';
 import { GalleryModule } from './gallery/gallery.module';
 import {ShoppingCartModule} from './shopping-cart/shopping-cart.module';
+import { DescriptionProductModule } from './description-product/description-product.module';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {ShoppingCartModule} from './shopping-cart/shopping-cart.module';
     TutorialsModule,
     ProductsModule,
     GalleryModule,
-    ShoppingCartModule
+    ShoppingCartModule,
+    DescriptionProductModule
 
 
   ],
