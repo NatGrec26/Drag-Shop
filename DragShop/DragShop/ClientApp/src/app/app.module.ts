@@ -19,6 +19,7 @@ import { GalleryModule } from './gallery/gallery.module';
 import {ShoppingCartModule} from './shopping-cart/shopping-cart.module';
 import { DescriptionProductModule } from './description-product/description-product.module';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DescriptionProductModule } from './description-product/description-prod
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ]),
+    NgbModule,
     CheckoutModule,
     AboutUsModule,
     UiModule,
