@@ -72,12 +72,18 @@ button.btn {
 
  .social-icons i{
 	padding:0px 15px;
-	color: #aaa;
+    color: #aaa;
+    font-size:20px;
 }
 .social{
     padding: 20px;
 }
 
  .social-icons i:hover{
-	color:#1e76a8;
+	color: #E98705; 
+}
+
+.crumb {
+    padding-top: 20px;
+    padding-bottom: 10px;
 }

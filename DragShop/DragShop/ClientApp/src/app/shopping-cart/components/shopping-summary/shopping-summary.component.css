@@ -16,6 +16,7 @@ button.btn {
 .typeletter {
     font-family: "Verdana";
     font-size: 18px;
+    padding-top: 6px;
 }
 
 h2 {
