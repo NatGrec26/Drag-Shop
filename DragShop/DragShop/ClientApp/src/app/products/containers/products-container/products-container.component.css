@@ -4,8 +4,11 @@ h1 {
     font-family: "Verdana";
   }
 
-  #img {
-    width: 200px;
-    height: 200px;
+  .container-p {
+    margin-bottom: 2%;
+}
 
-  }
+.img-product{
+    width: 100%;
+    height: auto;   
+}
