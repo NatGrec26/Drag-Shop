@@ -21,32 +21,32 @@ export class HomeComponent {
   product1: Product = {
     name : 'Paleta de contorno',
     price : 9000,
-    img: 'assets/img-products/Contour.png'
+    img: 'assets/products/Contour/Contour.png'
   }
   
   
   product2:  Product = {
     name : 'Pestañas',
     price : 4000,
-    img: 'assets/img-products/EyeLashes.png'
+    img: 'assets/products/Eyelashes/Eyelashes.png'
   }
   
   product3:  Product = {
     name : 'Leotardo',
     price : 10000,
-    img: 'assets/img-products/Leothard.png'
+    img: 'assets/products/Leothard/Leothard.png'
   }
   
   product4:  Product = {
     name : 'Paleta de sombras',
     price : 7000,
-    img: 'assets/img-products/Shadows.png'
+    img: 'assets/products/Shadows/Shadows.png'
   }
   
   product5:  Product = {
     name : 'Peluca',
     price : 5000,
-    img: 'assets/img-products/Wig.png'
+    img: 'assets/products/Wig/Wig.png'
   }
   
 
