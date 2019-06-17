@@ -1,9 +1,10 @@
 <div class="general-letter">
     <label>Usted está en: <i class="fa fa-home" [routerLink]='["/"]'> Inicio</i> / Carro de compras</label>
 </div>
+
 <h1 class="page-title general-letter">Carro de compras</h1>
 <br>
-<div class="row">
+<div class="row" *ngIf="shoppingDetails$ | async">
     <div class="col-md-2">
         <span class="subtitle">Producto</span>
     </div>
@@ -18,13 +19,13 @@
 
 </div>
 <hr class="my-4" />
-<div class="">
-    <div class="row">
+<div class="" *ngIf="shoppingDetails$ | async">
+    <div class="row" *ngFor="let productDeatil of (shoppingDetails$ | async).orderDetails">
         <div class="col-md-2" style="padding-left: 0px;">
             <img src="assets/labialMAC.jpg" class="img-product" alt="Image">
         </div>
         <div class="col-md-3">
-            <h4><label class="labelV">Labial MAC</label></h4>
+            <h4><label class="labelV">{{productDetail.name}}</label></h4>
         </div>
         <div class="col-md-3">
             <div class="input-group mb-2">
@@ -41,14 +42,18 @@
             </div>
         </div>
         <div class="col-md-2">
-            <span class="type-letter typeletter">₡ 2500</span>
+            <span class="type-letter typeletter">₡ {{productDeatil.price}}</span>
         </div>
         <div class="col-md-1">
-            <button type="button" class="close deleteBuutton">
+            <button type="button" class="close deleteBuutton" data-dismiss="modal" aria-label="Close" (click)="removeDetail(productDeatil)">
                 <span class="fa fa-trash"> </span>
             </button>
         </div>
     </div>
+</div>
+
+<div class="alert alert-warning" role="alert" *ngIf="!(shoppingDetails$ | async)">
+    <span>Su carro de compras está vacío.</span>
 </div>
 
 <hr class="my-4" />

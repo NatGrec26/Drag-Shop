@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   apiEndpoint: 'https://localhost:5001/api',
-  jsonServerEndpoint: 'http://localhost:3000',
 };
 
 
