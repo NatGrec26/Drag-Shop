@@ -30,92 +30,92 @@ export class ProductsContainerComponent implements OnInit {
     product1: Product = {
       name: 'Paleta de contorno',
       price: 9000,
-      img: 'assets/img-products/Contour.png'
+      img: 'assets/products/Contour/Contour.png'
     }
   
   
     product2: Product = {
       name: 'Pestañas',
       price: 4000,
-      img: 'assets/img-products/EyeLashes.png'
+      img: 'assets/products/Eyelashes/Eyelashes.png'
     }
   
     product3: Product = {
       name: 'Leotardo',
       price: 10000,
-      img: 'assets/img-products/Leothard.png'
+      img: 'assets/products/Leothard/Leothard.png'
     }
   
     product4: Product = {
       name: 'Paleta de sombras',
       price: 7000,
-      img: 'assets/img-products/Shadows.png'
+      img: 'assets/products/Shadows/Shadows.png'
     }
   
     product5: Product = {
       name: 'Peluca',
       price: 5000,
-      img: 'assets/img-products/Wig.png'
+      img: 'assets/products/Wig/Wig.png'
     }
   
     product6: Product = {
       name: 'Boa de plumas',
       price: 1500,
-      img: 'assets/img-products/Boa.png'
+      img: 'assets/products/Boa/Boa.png'
     }
   
     product7: Product = {
       name: 'Pechos de silicona',
       price: 24000,
-      img: 'assets/img-products/Breast.png'
+      img: 'assets/products/Breast/Breast.png'
     }
   
     product8: Product = {
       name: 'Brochas',
       price: 3000,
-      img: 'assets/img-products/Brush.png'
+      img: 'assets/products/Brush/Brush.png'
     }
   
     product9: Product = {
       name: 'Crema hidratante',
       price: 2500,
-      img: 'assets/img-products/Cream.png'
+      img: 'assets/products/Cream/Cream.png'
     }
   
     product10: Product = {
       name: 'Esmalte para uñas',
       price: 1000,
-      img: 'assets/img-products/Nailpolish.png'
+      img: 'assets/products/Nailpolish/Nailpolish.png'
     }
   
     produc11: Product = {
       name: 'Uñas postizas',
       price: 1200,
-      img: 'assets/img-products/Nails.png'
+      img: 'assets/products/Nails/Nails.png'
     }
   
     product12: Product = {
       name: 'Collar',
       price: 7000,
-      img: 'assets/img-products/Necklacke.png'
+      img: 'assets/products/Necklacke/Necklacke.png'
     }
   
     product13: Product = {
       name: 'Fragancia seducción',
       price: 12000,
-      img: 'assets/img-products/Perfum.png'
+      img: 'assets/products/Perfum/Perfum.png'
     }
   
     product14: Product = {
       name: 'Zapatos de tacón',
       price: 8000,
-      img: 'assets/img-products/Shoes.png'
+      img: 'assets/products/Shoes/Shoes.png'
     }
   
     product15: Product = {
       name: 'Relleno para caderas',
       price: 6000,
-      img: 'assets/img-products/Sponge.png'
+      img: 'assets/products/Sponge/Sponge.png'
     }
     products: Array<Product> = [this.product1, this.product2, this.product3, this.product4, this.product5,
     this.product6, this.product7, this.product8, this.product9, this.product10,
