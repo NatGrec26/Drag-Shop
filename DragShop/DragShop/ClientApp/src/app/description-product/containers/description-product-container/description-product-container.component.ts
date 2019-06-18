@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../../../products/services/product.service';
 import { ProductHome } from '../../../products/models/products-home.interface';
 import { SelectProduct } from '../../models/select-product.interface';
 import { ProductIdService } from '../../services/product-id.service';
@@ -22,8 +21,11 @@ import {
 import { NewProduct } from '../../models/new-product.interface';
 import { DescriptionPictureService } from '../../services/description-picture.service';
 import { Picture } from '../../models/picture.interface';
-import { ProductServiceDetail } from '../../services/product.service';
+import { ProductDetailServices } from '../../services/product-detail.service';
 import { Product } from '../../models/product.interface';
+import { FormGroup } from '@angular/forms';
+import { DescriptionProductItemFormService } from '../../services/description-product-item.services';
+import { ProductService } from '../../../products/services/product.service';
 
 @Component({
   selector: 'app-description-product-container',
@@ -38,24 +40,30 @@ export class DescriptionProductContainerComponent implements OnInit {
   serverResponseHandler: ServerResponseHandler;
   shoppingDetails$: Observable<ShoppingList>;
   data: Product = null;
+  detailProductForm: FormGroup;
   
 
   public currentQuantity = 1;
   constructor(
-    private route: ActivatedRoute,
-    private serviceProduct: ProductService,
-    private serviceid: ProductIdService,
-    private shoppingCartService: StoreShoppingCartService,
-    private shoppingCartQuery: ShoppingCartQuery,
-    private servicep: DescriptionPictureService,
-    private serviceb: ProductService,
-    private serviced: ProductServiceDetail,
-    // private service: DescriptionProductService,
+   private route: ActivatedRoute,
+   private serviceProduct: ProductService,
+   private serviceid: ProductIdService,
+   private shoppingCartService: StoreShoppingCartService,
+   private shoppingCartQuery: ShoppingCartQuery,
+   private servicep: DescriptionPictureService,
+   private serviced: ProductDetailServices,
+   private productDetailItemFormService: DescriptionProductItemFormService,
   ) { }
 
   ngOnInit() {
+    this.initForm();
     this.productId = +this.route.snapshot.paramMap.get('value'); 
   }
+
+  initForm() {
+    this.detailProductForm = this.productDetailItemFormService.initForm();
+  }
+
 
   getProduct() {
     this.serviceProduct.getProductsHome()
@@ -97,8 +105,9 @@ export class DescriptionProductContainerComponent implements OnInit {
 // this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
 }
 
-onSubmit(value: SelectProduct) {
-  this.getExistingProductSelect(value);
+onSubmitProduct() {
+  this.getExistingProductSelect(this.detailProductForm.value);
+  console.log(this.detailProductForm.value);
 }
 
 getBeneficted(productID: number) {

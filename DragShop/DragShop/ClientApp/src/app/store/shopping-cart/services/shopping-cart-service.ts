@@ -6,7 +6,10 @@ import { ShoppingCartQuery } from './../shopping-cart-query';
 // tslint:disable-next-line:max-line-length
 import { ShoppingList, createShoppingList, recalculateShoppingListQuantities } from './../models/shopping-list.interface';
 import { ValidatePointS } from '../../../checkout//models/validatePointS.interface';
-@Injectable()
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ShoppingCartService {
   constructor(
     private shoppingCartStore: ShoppingCartStore,
