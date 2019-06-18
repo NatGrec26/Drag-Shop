@@ -59,7 +59,7 @@ export class ShoppingCartContainerComponent implements OnInit {
   getAllDataPicture() {
     this.orderDetailsActive = this.shoppingCartQuery.getActive().orderDetails;
     for (const order of this.orderDetailsActive) {
-      this.getPictureProductShop(order.productId);
+      this.getPictureProductShop(order.productID);
     }
   }
 

@@ -35,6 +35,7 @@ namespace DragShop
         {
             services.AddTransient<IRoleRepository, RoleRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
 
             return services;
         }

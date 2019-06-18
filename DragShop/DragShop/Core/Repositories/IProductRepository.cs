@@ -11,6 +11,6 @@ namespace DragShop.Core.Repositories
 {
     public interface IProductRepository : IRepository<Product>
     {
-        Task<(ProductResponseModel, IImmutableList<ErrorDto>)> GetProductById(int courseId);
+        Task<(ProductResponseModel, IImmutableList<ErrorDto>)> GetProductById(int productId);
     }
 }

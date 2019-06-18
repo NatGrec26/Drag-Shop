@@ -32,19 +32,7 @@ namespace DragShop.Controllers
             return this.Ok(product);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get1ProductByIdAsync(int Id)
-        {
-           // var (product, errors) = await this.productRepository.GetProductById(Id);
-
-          /*  if (errors != null && errors.Any())
-            {
-                return this.ResolveErrorStatusCode(errors.First());
-            }*/
-            String hola;
-
-            return NoContent();
-        }
+  
     }
 
 

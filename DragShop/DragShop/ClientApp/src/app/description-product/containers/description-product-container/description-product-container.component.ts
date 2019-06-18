@@ -41,13 +41,6 @@ export class DescriptionProductContainerComponent implements OnInit {
   shoppingDetails$: Observable<ShoppingList>;
   data: Product = null;
   detailProductForm: FormGroup;
-  dataSourceProfessor: ExistingProduct =
-    {
-      productName: 'Jhonny',
-      productId: 2,
-      priceValue: 1000000,
-      valueAddress: 'Paniagua',
-    };
 
   public currentQuantity = 1;
   constructor(
@@ -79,25 +72,29 @@ export class DescriptionProductContainerComponent implements OnInit {
             }
         );
   }
+ 
   getExistingProductSelect(value: SelectProduct) {
     this.serviceid.getExistingProduct(this.productId)
     .subscribe(
         existingData => {
-            this.existingData = this.dataSourceProfessor;
+            this.existingData = existingData;
             this.shoppingCartService.addElement(
                 recalculateShoppingDetailQuantities({
                     id: guid(),
-                    name: this.dataSourceProfessor.productName,
-                    valueAddress: this.dataSourceProfessor.valueAddress,
-                    quantity: value.quantity,
-                    description: 'Order',
-                    price: this.dataSourceProfessor.priceValue,
-                    productId: this.dataSourceProfessor.productId,
+                    name: existingData.name,
+                    description: existingData.description,
+                    lastPrice: existingData.lastPrice,
+                    state: existingData.state,
+                    tutorial: existingData.tutorial,
+                    productID: existingData.productID,
                     subtotal: 0,
+                    quantity: value.quantity,
                 })
+
             );
             this.serverResponseHandler = createSuccessResponse('Producto agregado al carrito de compras', null);
             this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
+            console.log(this.shoppingDetails$);
         },
         error => {
             if (error instanceof HttpErrorResponse) {
@@ -110,37 +107,6 @@ export class DescriptionProductContainerComponent implements OnInit {
 // this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
 }
 
- /* getExistingProductSelect(value: SelectProduct) {
-    this.serviceid.getExistingProduct(this.productId)
-    .subscribe(
-        existingData => {
-            this.existingData = existingData;
-            this.shoppingCartService.addElement(
-                recalculateShoppingDetailQuantities({
-                    id: guid(),
-                    name: existingData.productName,
-                    valueAddress: existingData.valueAddress,
-                    quantity: value.quantity,
-                    description: 'Order',
-                    price: existingData.priceValue,
-                    productId: existingData.productId,
-                    subtotal: 0,
-                })
-            );
-            this.serverResponseHandler = createSuccessResponse('Producto agregado al carrito de compras', null);
-            this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
-        },
-        error => {
-            if (error instanceof HttpErrorResponse) {
-                this.handleHttpErrorMessage(error, ' error ');
-            } else {
-                this.serverResponseHandler = createGenericErrorResponse();
-            }
-        }
-    );
-// this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
-}
-*/
 onSubmitProduct() {
   this.getExistingProductSelect(this.detailProductForm.value);
   console.log(this.detailProductForm.value);

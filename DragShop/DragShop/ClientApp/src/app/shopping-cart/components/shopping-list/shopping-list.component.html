@@ -19,7 +19,7 @@
 
 </div>
 <hr class="my-4" />
-<div class="" *ngIf="shoppingDetails$ | async">
+<div class="container" *ngIf="shoppingDetails$ | async">
     <div class="row" *ngFor="let productDeatil of (shoppingDetails$ | async).orderDetails">
         <div class="col-md-2" style="padding-left: 0px;">
             <img src="assets/labialMAC.jpg" class="img-product" alt="Image">
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="col-md-2">
-            <span class="type-letter typeletter">₡ {{productDeatil.price}}</span>
+            <span class="type-letter typeletter">₡ {{productDeatil.lastPrice}}</span>
         </div>
         <div class="col-md-1">
             <button type="button" class="close deleteBuutton" data-dismiss="modal" aria-label="Close" (click)="removeDetail(productDeatil)">
@@ -59,7 +59,7 @@
 <hr class="my-4" />
 <div class="row">
     <p>
-        <a [routerLink]='["/"]'>>Continuar comprando</a>
+        <a [routerLink]='["/products"]'>>Continuar comprando</a>
     </p>
 </div>
 <br>

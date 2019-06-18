@@ -3,10 +3,11 @@ import { ID } from '@datorama/akita';
 export interface ShoppingDetail {
   id: ID;
   name: string;
-  valueAddress: string;
   description: string;
-  price: number;
-  productId: number;
+  lastPrice: number;
+  productID: number;
+  tutorial: string;
+  state: string; 
   quantity: number;
   subtotal: number;
 
@@ -15,6 +16,6 @@ export interface ShoppingDetail {
 export function recalculateShoppingDetailQuantities(item: ShoppingDetail): ShoppingDetail {
   return {
     ...item,
-    subtotal: item.quantity * item.price
+    subtotal: item.quantity * item.lastPrice
   };
 }
