@@ -41,7 +41,13 @@ export class DescriptionProductContainerComponent implements OnInit {
   shoppingDetails$: Observable<ShoppingList>;
   data: Product = null;
   detailProductForm: FormGroup;
-  
+  dataSourceProfessor: ExistingProduct =
+    {
+      productName: 'Jhonny',
+      productId: 2,
+      priceValue: 1000000,
+      valueAddress: 'Paniagua',
+    };
 
   public currentQuantity = 1;
   constructor(
@@ -57,7 +63,7 @@ export class DescriptionProductContainerComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    this.productId = +this.route.snapshot.paramMap.get('value'); 
+    this.productId = +this.route.snapshot.paramMap.get('value');
   }
 
   initForm() {
@@ -73,8 +79,38 @@ export class DescriptionProductContainerComponent implements OnInit {
             }
         );
   }
-
   getExistingProductSelect(value: SelectProduct) {
+    this.serviceid.getExistingProduct(this.productId)
+    .subscribe(
+        existingData => {
+            this.existingData = this.dataSourceProfessor;
+            this.shoppingCartService.addElement(
+                recalculateShoppingDetailQuantities({
+                    id: guid(),
+                    name: this.dataSourceProfessor.productName,
+                    valueAddress: this.dataSourceProfessor.valueAddress,
+                    quantity: value.quantity,
+                    description: 'Order',
+                    price: this.dataSourceProfessor.priceValue,
+                    productId: this.dataSourceProfessor.productId,
+                    subtotal: 0,
+                })
+            );
+            this.serverResponseHandler = createSuccessResponse('Producto agregado al carrito de compras', null);
+            this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
+        },
+        error => {
+            if (error instanceof HttpErrorResponse) {
+                this.handleHttpErrorMessage(error, ' error ');
+            } else {
+                this.serverResponseHandler = createGenericErrorResponse();
+            }
+        }
+    );
+// this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
+}
+
+ /* getExistingProductSelect(value: SelectProduct) {
     this.serviceid.getExistingProduct(this.productId)
     .subscribe(
         existingData => {
@@ -96,7 +132,7 @@ export class DescriptionProductContainerComponent implements OnInit {
         },
         error => {
             if (error instanceof HttpErrorResponse) {
-                this.handleHttpErrorMessage(error, "error");
+                this.handleHttpErrorMessage(error, ' error ');
             } else {
                 this.serverResponseHandler = createGenericErrorResponse();
             }
@@ -104,7 +140,7 @@ export class DescriptionProductContainerComponent implements OnInit {
     );
 // this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
 }
-
+*/
 onSubmitProduct() {
   this.getExistingProductSelect(this.detailProductForm.value);
   console.log(this.detailProductForm.value);
@@ -117,7 +153,7 @@ getBeneficted(productID: number) {
               this.data = data;
           }, error => {
               if (error instanceof HttpErrorResponse) {
-                  this.handleHttpErrorMessage(error, "error");
+                  this.handleHttpErrorMessage(error, 'error');
               } else {
                   this.serverResponseHandler = createGenericErrorResponse();
               }
@@ -132,7 +168,7 @@ getPicture(benefictedId: number) {
               this.picture = picture;
           }, error => {
               if (error instanceof HttpErrorResponse) {
-                  this.handleHttpErrorMessage(error, "error");
+                  this.handleHttpErrorMessage(error, 'error');
               } else {
                   this.serverResponseHandler = createGenericErrorResponse();
               }
@@ -149,7 +185,7 @@ getPicture(benefictedId: number) {
     }
   }
 
-  
+
   handleHttpErrorMessage(httpErrorResponse: HttpErrorResponse, messagge: string) {
     if (httpErrorResponse.status === 404) {
         this.serverResponseHandler = createServerResponseHandler(messagge, false, httpErrorResponse.status, 'error');
