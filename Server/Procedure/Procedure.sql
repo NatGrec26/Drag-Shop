@@ -1,4 +1,4 @@
-CREATE OR ALTER  PROCEDURE [dbo].[SP_GetProduct] 
+CREATE OR ALTER  PROCEDURE [dbo].[SP_GetProductById] 
 	@ProductID INT
 AS 
 BEGIN 
