@@ -1,14 +1,135 @@
-<h1>Hello, world!</h1>
-<p>Welcome to your new single-page application, built with:</p>
-<ul>
-  <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
-  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-</ul>
-<p>To help you get started, we've also set up:</p>
-<ul>
-  <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-  <li><strong>Angular CLI integration</strong>. In development mode, there's no need to run <code>ng serve</code>. It runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
-  <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified, ahead-of-time compiled JavaScript files.</li>
-</ul>
-<p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>
+<div class="container">
+  <div class="row">
+
+    <!--<ngb-carousel *ngIf="images">-->
+    <ngb-carousel>
+      <ng-template ngbSlide>
+        <!--<img [src]="images[0]" alt="Random first slide"> -->
+        <a href="https://elle.mx/belleza/2019/06/06/makeup-drag-queens-favoritas/" target="blank">
+          <img class="img-carousel" src="assets/img-news/new_2.png" alt="Noticia 1">
+        </a>
+        <div class="carousel-caption">
+          <h3>ELLE</h3>
+          <p>Las colecciones de makeup creadas por nuestras Drag Queens favoritas</p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <!--<img [src]="images[0]" alt="Random first slide"> -->
+        <a href="https://laverdadnoticias.com/espectaculos/ESCANDALA-Esta-fue-la-ganadora-de-RuPauls-Drag-Race-Season-11-20190607-0097.html"
+          target="blank">
+          <img class="img-carousel" src="assets/img-news/new_1.jpg" alt="Noticia 2">
+        </a>
+        <div class="carousel-caption">
+          <h3>LA VERDAD</h3>
+          <p>¡ESCANDALA! Esta fue la ganadora de RuPaul's Drag Race Season 11</p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <!--<img [src]="images[0]" alt="Random first slide"> -->
+        <a href="https://laverdadnoticias.com/espectaculos/Red-Rabbit-Duo-Porque-todos-hablan-de-ellas-en-La-Mas-Draga-2-20190517-0043.html"
+          target="blank">
+          <img class="img-carousel img-fluid" src="assets/img-news/new_3.jpeg" alt="Noticia 3">
+        </a>
+        <div class="carousel-caption">
+          <h3>LA VERDAD</h3>
+          <p>Red Rabbit Dúo, ¿Porque todos hablan de ellas en La Más Draga 2?</p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <!--<img [src]="images[0]" alt="Random first slide"> -->
+        <a href="https://www.soyhomosensual.com/mercadolgbt/una-drag-queen-protagoniza-comercial-de-gillette/"
+          target="blank">
+          <img class="img-carousel  img-fluid" src="assets/img-news/new_4.png" alt="Noticia 4">
+        </a>
+        <div class="carousel-caption">
+          <h3>HOMOSENSUAL</h3>
+          <p>Una drag queen protagoniza comercial de Gillette</p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <!--<img [src]="images[0]" alt="Random first slide"> -->
+        <a href="https://peopleenespanol.com/celebridades/conoce-a-valentina-la-drag-queen-mexicana-que-trabaja-con-video-de-gloria-trevi/?slide=6225770#6225770"
+          target="blank">
+          <img class="img-carousel  img-fluid" src="assets/img-news/new_5.jpg" alt="Noticia 5">
+        </a>
+        <div class="carousel-caption">
+          <h3>PEOPLE</h3>
+          <p>¿Quién es Valentina, la drag queen mexicana que causó sensación en el video de Gloria Trevi?</p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <!--<img [src]="images[0]" alt="Random first slide"> -->
+        <a href="https://happyfm.es/television/rupauls-drag-race-10-lip-sync-que-no-te-puedes-perder-173613/"
+          target="blank">
+          <img class="img-carousel  img-fluid" src="assets/img-news/new_6.jpg" alt="Noticia 6">
+        </a>
+        <div class="carousel-caption">
+          <h3>HAPPY FM</h3>
+          <p>"RuPaul's Drag Race": 10 lipsync que no te puedes perder </p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <!--<img [src]="images[0]" alt="Random first slide"> -->
+        <a href="https://www.metro.pr/pr/entretenimiento/2019/05/16/llega-a-itunes-la-primera-drag-queen-boricua.html"
+          target="blank">
+          <img class="img-carousel" src="assets/img-news/new_7.jpg" alt="Noticia 7">
+        </a>
+        <div class="carousel-caption  img-fluid">
+          <h3>METRO</h3>
+          <p>Llega a iTunes la primera 'drag queen' boricua</p>
+        </div>
+      </ng-template>
+
+
+    </ngb-carousel>
+  </div>
+
+  <div class="row">
+    <h1 class="h1dif">Historia de Drag&Shop</h1>
+    <hr class="my-4">
+    <div class="letterJust">
+      Drag&Shop es una tienda que nace como acto rebelde ante los estereotipos sociales y
+      discriminatorios, desde que tenemos uso de razón, las personas son juzgadas sin
+      importar sus emociones o deseos, que si una mujer compra una peluca se está quedando
+      calva, que algunas tiendas de zapatos no permiten a un hombre probarselos, que te miran mal
+      si vas a comprar maquillaje y sos varón. Sin embargo, con el tiempo se crearon tiendas físicas que respetan la
+      diversidad, pero aún existe el peligro latente de ser atacado o juzgado si te ven en ellas
+    </div>
+  </div>
+
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]='["/about-us"]'>Ver más...</a>
+    </li>
+  </ul>
+
+  <div class="row container-p">
+
+    <h1 class="h1dif text-left">Productos</h1>
+    <hr class="my-4">
+
+    <div class="row d-flex justify-content-start">
+
+      <div id="product-list" class="card col-lg-3 col-md-4 col-xs-6  rounded" *ngFor="let product of products">
+        <img [src]='product.img' class="card-img-top img-product img-fluid" alt='product.name'>
+        <div class="card-footer d-flex d-flex justify-content-between">
+          <p class="card-text">{{product.name}}</p>
+          <p class="card-text">₡ {{product.price}}</p>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <div class="row">
+      <p>
+          <a [routerLink]='["/products"]'>>Ver más productos</a>
+      </p>
+  </div>
+</div>

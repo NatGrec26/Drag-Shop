@@ -16,7 +16,7 @@ namespace DragShop.Services.Database
 
         public DapperHelper(IConfiguration configuration)
         {
-            this._awlaConnectionString = configuration.GetConnectionString("awla");
+            this._awlaConnectionString = configuration.GetConnectionString("DRAGSHOP");
         }
 
         public async Task<IEnumerable<T>> ExecuteStoredProcedureAsync<T>(string storedProcedureName)

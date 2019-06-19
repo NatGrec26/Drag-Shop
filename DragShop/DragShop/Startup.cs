@@ -90,7 +90,7 @@ namespace DragShop
 
             this.AddMenuPolicies(services);
 
-            services.AddDbContext<ApplicationDbContext>(optionsAction => optionsAction.UseSqlServer(Configuration.GetConnectionString("DragShop")));
+            services.AddDbContext<ApplicationDbContext>(optionsAction => optionsAction.UseSqlServer(Configuration.GetConnectionString("DRAGSHOP")));
 
 
             services.Configure<CookiePolicyOptions>(options =>

@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+.general-letter {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.page-title{
+    font-size: 28px;
+}
+
+.subtitle{
+    font-size: 20px;
+}
+
+.normal-text{
+    font-size: 18px;
+}
+
+.margin {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+  

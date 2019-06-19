@@ -1,0 +1,48 @@
+.letterFont{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+.card {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .littleLetter{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5em;
+    text-align : justify;
+    color: white;
+  }
+  
+  .divBack{
+    padding: 3%;
+    height: 100%;
+    background:  rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+   }
+  
+   .under{
+    position: relative;
+   }
+
+   .center1{
+    text-align: center;
+   }
+   label {
+    font-family: "Verdana";
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 24px;
+    font-family: "Verdana";
+  }
+  
+  h1 {
+    font-size: 28px;
+    font-family: "Verdana";
+  }
+  h3 {
+    font-size: 17px;
+    font-family: "Verdana";
+  }

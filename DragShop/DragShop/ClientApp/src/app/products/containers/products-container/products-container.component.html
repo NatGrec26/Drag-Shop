@@ -1,0 +1,63 @@
+<br>
+<h1>Productos</h1>
+<br>
+<div class="row container-p">
+
+    <hr class="my-4">
+
+    <div class="row d-flex justify-content-start">
+
+      <div id="product-list" class="card col-lg-3 col-md-4 col-xs-6  rounded" *ngFor="let product of productsAll">
+        <img [src]='product.systemImageUrl' class="card-img-top img-product img-fluid" alt='product.name'>
+        <div class="card-footer d-flex d-flex justify-content-between">
+          <p class="card-text">{{product.name}}</p>
+          <p class="card-text">₡ {{product.lastPrice}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+<!--
+<div id="demo">
+    <div class="row justify-content-center">
+        <div>
+            <a [routerLink]='["/"]'> <img id="img" class="img-fluid" src="assets/products/Brocha.png" alt="Brocha"></a>
+            <div class="row" class="row justify-content-center">
+               <div class="column" style="margin: 2%;" >
+                <h6 class="letter">Brochas</h6>
+            </div>
+            <div class="column" style="margin: 2%;">
+            <h6 class="lettterTwo">$20.</h6></div>
+            </div>
+        </div>
+
+
+        <div>
+            <a [routerLink]='["/"]'> <img id="img" class="img-fluid" src="assets/products/boa.png" alt="Boa"></a>
+            <div class="row" class="row justify-content-center">
+               <div class="column" style="margin: 2%;" >
+                <h6 class="letter">Boa</h6>
+            </div>
+            <div class="column" style="margin: 2%;">
+            <h6 class="lettterTwo">$50.</h6></div>
+            </div>
+        </div>
+
+
+        <div>
+            <a [routerLink]='["/"]'> <img id="img" class="img-fluid" src="assets/products/Leothard.png" alt="Leotardo"></a>
+            <div class="row" class="row justify-content-center">
+               <div class="column" style="margin: 2%;" >
+                <h6 class="letter">Leotardo</h6>
+            </div>
+            <div class="column" style="margin: 2%;">
+            <h6 class="lettterTwo">$90.</h6></div>
+            </div>
+        </div>
+       
+    </div>
+
+</div>-->

@@ -4,6 +4,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+import { enableAkitaProdMode, persistState } from '@datorama/akita';
+
 export function getBaseUrl() {
   return document.getElementsByTagName('base')[0].href;
 }
@@ -14,7 +16,12 @@ const providers = [
 
 if (environment.production) {
   enableProdMode();
+  enableAkitaProdMode();
 }
+
+persistState({
+  storage: localStorage
+});
 
 platformBrowserDynamic(providers).bootstrapModule(AppModule)
   .catch(err => console.log(err));

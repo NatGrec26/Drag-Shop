@@ -1,0 +1,68 @@
+<div class="general-letter crumb">
+    <label>Usted está en: <i class="fa fa-home" [routerLink]='["/"]'> <label class="general-letter"> Inicio</label></i>
+        /
+        Carro de compras</label>
+</div>
+
+<h1 class="page-title general-letter">Carro de compras</h1>
+<br>
+<div class="row" *ngIf="shoppingDetails$ | async">
+    <div class="col-md-2">
+        <span class="subtitle">Producto</span>
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+        <span class="subtitle">Cantidad</span>
+    </div>
+    <div class="col-md-3">
+        <span class="subtitle text-center">Precio</span>
+    </div>
+
+</div>
+<hr class="my-4" />
+<div class="container" *ngIf="shoppingDetails$ | async">
+    <div class="row" *ngFor="let productDeatil of (shoppingDetails$ | async).orderDetails">
+        <div class="col-md-2" style="padding-left: 0px;">
+            <img src="assets/labialMAC.jpg" class="img-product" alt="Image">
+        </div>
+        <div class="col-md-3">
+                <span class="labelV">{{productDeatil.name}}</span>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <button class="btn btn-dark btn-sm" (click)="restQuantity(productDeatil)" id="minus-btn" data-type="minus"><i
+                            class="fa fa-minus"></i></button>
+                </div>
+                <input type="text" id="productDeatil" [(ngModel)]="productDeatil.quantity" name="productDeatil" class="form-control input-number" min="1" max="100">
+                <div class="input-group-prepend">
+                    <button class="btn btn-dark btn-sm" (click)="sumQuantity(productDeatil)" id="plus-btn" data-type="plus"><i
+                            class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <span class="type-letter typeletter">₡ {{productDeatil.lastPrice}}</span>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="close deleteBuutton" data-dismiss="modal" aria-label="Close" (click)="removeDetail(productDeatil)">
+                <span class="fa fa-trash"> </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-warning" role="alert" *ngIf="!(shoppingDetails$ | async)">
+    <span>Su carro de compras está vacío.</span>
+</div>
+
+<hr class="my-4" />
+<div class="row">
+    <p>
+        <a [routerLink]='["/products"]'>>Continuar comprando</a>
+    </p>
+</div>
+<br>
+<br>

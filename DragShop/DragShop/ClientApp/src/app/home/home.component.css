@@ -1,0 +1,53 @@
+
+
+.letter{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 28px;
+}
+.letterJust{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.5em;
+}
+
+
+body{background-color: #AF392C}
+
+.img-carousel
+{
+    width: 100%;
+    height: 400px !important;   
+}
+
+ngb-carousel {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.h1dif{
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin-top: 2%;
+
+}
+
+.carousel-caption {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    text-shadow: black 0.1em 0.1em 0.2em  
+}
+
+.container-p {
+    margin-bottom: 2%;
+}
+
+.img-product{
+    width: 100%;
+    height: auto;   
+}

@@ -1,0 +1,48 @@
+.img-product {
+    width: 150px;
+    height: 120px;
+}
+
+.rounded {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    width: 100px;
+}
+
+a::content {
+    color: black;
+    font-size: 18px;
+    flood-opacity: initial;
+}
+
+.typeletter {
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+.labelV-G {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.labelV {
+    font-weight: bold;
+}
+
+.deleteBuutton {
+    color: black;
+    size: 30px;
+}
+.crumb {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
