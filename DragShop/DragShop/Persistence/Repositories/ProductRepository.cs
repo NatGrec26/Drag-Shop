@@ -27,7 +27,11 @@ namespace DragShop.Persistence.Repositories
             var serverResponse = await this.dapperHelper.ExecuteSingleEntityStoredProcedureAsync<ProductResponseModel>("SP_GetProductById", new { @ProductID = productId });
             return (serverResponse, null);
         }
-
+        public async Task<(IImmutableList<ProductAllResponseModel>, IImmutableList<ErrorDto>)> GetProduct()
+        {
+            var serverResponse = await this.dapperHelper.ExecuteStoredProcedureAsync<ProductAllResponseModel>("SP_GetProduct");
+            return (serverResponse.ToImmutableList(), null);
+        }
 
     }
 }
