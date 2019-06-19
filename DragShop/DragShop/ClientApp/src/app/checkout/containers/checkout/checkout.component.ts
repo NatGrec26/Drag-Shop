@@ -51,7 +51,7 @@ export class CheckoutComponent implements OnInit {
 
    cleanOrder(){
     this.shoppingCartService.removeList();
-    alert("Su compra se realizó con éxito, muchas gracias por elegirnos");
+    alert("Su compra se realizó con éxito, muchas gracias por elegirnos.");
     this.routerLink.navigate(['/']);
    }
 
