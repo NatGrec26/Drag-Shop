@@ -1,11 +1,10 @@
 export interface ShoppingDetail {
     id: number;
     name: string;
+    state: string; 
+    tutorial: string;
     description: string;
     quantity: number;
-    size: number;
-    price: number;
-    img: string;
-    ground: string;
-    varetyName: string;
+    lastPrice: number;
+    productID: number; 
   }

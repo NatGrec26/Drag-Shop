@@ -27,6 +27,7 @@ export class ShoppingCartService {
 
   addElement(item: ShoppingDetail) {
    const currentList = this.shoppingCartQuery.getActive();
+   console.log("Soy current list",currentList);
     if (!currentList) {
       const list = this.updateShoppingListDetails(createShoppingList(), [item]);
       this.addList(list);
@@ -45,7 +46,7 @@ export class ShoppingCartService {
 
   getExistingItem(item: ShoppingDetail, list: ShoppingList) {
     return list.orderDetails.find(detail =>
-      detail.productId === item.productId);
+      detail.productID === item.productID);
   }
 
   updateQuatity(id: ID, action: string, updateQuantity: number) {
@@ -103,7 +104,7 @@ export class ShoppingCartService {
     const currentList = this.shoppingCartQuery.getActive();
     const orderDetails = currentList.orderDetails;
     const changedList = orderDetails.map(function (item) {
-      const foundOutOfStock = points.find(e => e.productId === item.productId);
+      const foundOutOfStock = points.find(e => e.productId === item.productID);
       if (foundOutOfStock) {
         return recalculateShoppingDetailQuantities({
           ...item,

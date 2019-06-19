@@ -30,7 +30,7 @@ export class ShoppingCartContainerComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-      // this.getProduct();
+     // this.getProduct();
       this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
     }
 

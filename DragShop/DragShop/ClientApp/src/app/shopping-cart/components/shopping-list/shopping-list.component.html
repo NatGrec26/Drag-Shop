@@ -25,17 +25,17 @@
             <img src="assets/labialMAC.jpg" class="img-product" alt="Image">
         </div>
         <div class="col-md-3">
-            <h4><label class="labelV">{{productDetail.name}}</label></h4>
+            <!-- <h4><label class="labelV">{{productDetail.name}}</label></h4> -->
         </div>
         <div class="col-md-3">
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                    <button class="btn btn-dark btn-sm" (click)="restQuantity()" id="minus-btn" data-type="minus"><i
+                    <button class="btn btn-dark btn-sm" (click)="restQuantity(productDeatil)" id="minus-btn" data-type="minus"><i
                             class="fa fa-minus"></i></button>
                 </div>
-                <input type="text" class="form-control input-number" min="1" max="100">
+                <input type="text" id="productDeatil" [(ngModel)]="productDeatil.quantity" name="productDeatil" class="form-control input-number" min="1" max="100">
                 <div class="input-group-prepend">
-                    <button class="btn btn-dark btn-sm" (click)="sumQuantity()" id="plus-btn" data-type="plus"><i
+                    <button class="btn btn-dark btn-sm" (click)="sumQuantity(productDeatil)" id="plus-btn" data-type="plus"><i
                             class="fa fa-plus"></i>
                     </button>
                 </div>

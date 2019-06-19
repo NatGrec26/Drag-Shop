@@ -25,7 +25,7 @@ export class ShoppingListComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-      console.log(this.shoppingDetails$)
+      console.log("Soy shoppingDetails$",this.shoppingDetails$)
     }
     
     sumQuantity(productDeatil: ShoppingDetail) {
