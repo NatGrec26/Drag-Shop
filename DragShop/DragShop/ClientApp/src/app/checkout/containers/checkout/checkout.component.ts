@@ -7,13 +7,13 @@ import {
 } from '../../../utils/server-response-handler';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CheckoutFormService } from '../../services/checkout-form.component';
 import { Observable } from 'rxjs';
 import { ShoppingList } from '../../../store/shopping-cart/models/shopping-list.interface';
-import { ShoppingCartService } from 'src/app/store/shopping-cart/services/shopping-cart-service';
-import { ShoppingCartQuery } from 'src/app/store/shopping-cart/shopping-cart-query';
+import { ShoppingCartService } from '../../../store/shopping-cart/services/shopping-cart-service';
+import { ShoppingCartQuery } from '../../../store/shopping-cart/shopping-cart-query';
 
 @Component({
   selector: 'app-checkout-component',
@@ -29,6 +29,7 @@ export class CheckoutComponent implements OnInit {
     private checkoutFormService: CheckoutFormService,
     private shoppingCartService: ShoppingCartService,
     private shoppingCartQuery: ShoppingCartQuery,
+    private routerLink:Router
   ) { }
   
   ngOnInit() {
@@ -47,6 +48,12 @@ export class CheckoutComponent implements OnInit {
       this.serverResponseHandler = handleDefaultHttpError(httpErrorResponse);
     }
   }
+
+   cleanOrder(){
+    this.shoppingCartService.removeList();
+    alert("Su compra se realizó con éxito, muchas gracias por elegirnos.");
+    this.routerLink.navigate(['/']);
+   }
 
 
   handleHttpErrorMessageExpress(httpErrorResponse: HttpErrorResponse) {
