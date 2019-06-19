@@ -13,7 +13,7 @@ import { ValidatePointS } from '../../../checkout//models/validatePointS.interfa
 export class ShoppingCartService {
   constructor(
     private shoppingCartStore: ShoppingCartStore,
-    private shoppingCartQuery: ShoppingCartQuery
+    private shoppingCartQuery: ShoppingCartQuery,
   ) {
   }
 
@@ -79,6 +79,7 @@ export class ShoppingCartService {
     });
 
   }
+
 
  /* updateQuatitytwo(id: number, quantity: number) {
     // tslint:disable-next-line:prefer-const
