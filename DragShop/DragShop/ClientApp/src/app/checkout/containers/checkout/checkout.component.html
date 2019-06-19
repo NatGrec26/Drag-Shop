@@ -131,7 +131,9 @@
               <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
             </form>
           </div>
-          <button type="submit" class="btn btn-block center">Pagar</button>
+          <div class="row text-center" *ngIf="(shoppingDetails$ | async)">
+          <button (click)="cleanOrder()"  routerLinkActive="router-link-active"  type="submit" class="btn btn-block center">Pagar</button>
+       </div>
         </div>
       </div>
     </form>
