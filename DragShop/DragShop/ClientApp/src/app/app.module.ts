@@ -18,7 +18,8 @@ import {ProductsModule} from './products/products.module';
 import { GalleryModule } from './gallery/gallery.module';
 import {ShoppingCartModule} from './shopping-cart/shopping-cart.module';
 import { DescriptionProductModule } from './description-product/description-product.module';
-
+import * as fromStore from './store';
+//import * as fromGuards from './guards';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -52,7 +53,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
   ],
-  providers: [],
+  providers: [
+    ...fromStore.services,
+    ...fromStore.stores,
+    ...fromStore.queries,
+    //...fromGuards.guards
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

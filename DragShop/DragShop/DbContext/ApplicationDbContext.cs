@@ -59,5 +59,11 @@ namespace DragShop.DbContext
             seedInitializer?.SeedData(builder);
         }
         #endregion
+
+
+        #region
+        public virtual DbSet<Product> Products { get; set; }
+
+        #endregion
     }
 }

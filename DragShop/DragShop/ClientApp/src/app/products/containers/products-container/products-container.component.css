@@ -1,0 +1,14 @@
+h1 {
+    font-size: 28px;
+
+    font-family: "Verdana";
+  }
+
+  .container-p {
+    margin-bottom: 2%;
+}
+
+.img-product{
+    width: 100%;
+    height: auto;   
+}
