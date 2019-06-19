@@ -2,45 +2,48 @@
 
     <div class="col-md-4">
         <div class="container">
-          <div class="row">
-            <div class="col-md-8 littleLetter">
-              <h6 class="littleLetter">Carro de compras </h6>
-            </div>
-            <div class="col-md-4">
-              <span style="color:black">
-                <i class="fa fa-shopping-cart">
-                  <b>Cantidad de artículos 2</b>
-                </i>
-              </span>
-            </div>
-          </div>
-          <div>
             <div class="row">
               <div class="col-md-8 littleLetter">
-                <span>Maquillaje</span>
+                <h4 class="littleLetter">Carro de compras </h4>
               </div>
-    
               <div class="col-md-4">
-                <span>₡ 10000</span>
-              </div>
-              <div class="col-md-8 littleLetter">
-                <span>Pelucas</span>
-              </div>
-    
-              <div class="col-md-4">
-                <span>₡ 20000</span>
+                <span style="color:black">
+                  <i class="fa fa-shopping-cart">
+                    <b *ngIf="shoppingDetails$ | async">{{(shoppingDetails$ | async).totalProducts}}</b>
+                    <b *ngIf="!(shoppingDetails$ | async)">0</b>
+                  </i>
+                </span>
               </div>
             </div>
+            <div *ngIf="shoppingDetails$ | async">
+              <div class="row" *ngFor="let productDeatil of (shoppingDetails$ | async).orderDetails">
+                <div class="col-md-8 littleLetter">
+                  <span>{{productDeatil.name}}</span>
+                </div>
+          
+                <div class="col-md-4">
+                  <span>₡ {{ productDeatil.lastPrice * productDeatil.quantity}}</span>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!(shoppingDetails$ | async)">
+              <div class="row">
+                <div class="col-md-8 littleLetter">
+                  <span>No hay productos</span>
+                </div>
+          
+                <div class="col-md-4">
+                  <span>₡ 0.00</span>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <p>Total <span class="price" style="color:black">
+                <b *ngIf="shoppingDetails$ | async">₡{{(shoppingDetails$ | async).subtotal}}</b>
+                <b *ngIf="!(shoppingDetails$ | async)">₡0.00</b>
+              </span>
+            </p>
           </div>
-          <div class="row">
-            <div class="col-md-6 littleLetter">
-              <span>Total</span>
-            </div>
-            <div class="col-md-6">
-              <span>₡ 0.00</span>
-            </div>
-          </div>
-        </div>
       </div>
 
 
