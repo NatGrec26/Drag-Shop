@@ -1,65 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { ProductAll } from '../products/models/products-all.interface';
+import { ProductService } from '../products/services/product.service';
 
-export interface  Product {
-  name:String;
-price:number;
-img:String;
-}
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [NgbCarouselConfig]  
+  providers: [NgbCarouselConfig]
 })
 
-
-
-export class HomeComponent {
-  
-  product1: Product = {
-    name : 'Paleta de contorno',
-    price : 9000,
-    img: 'assets/products/Contour/Contour.png'
-  }
-  
-  
-  product2:  Product = {
-    name : 'Pestañas',
-    price : 4000,
-    img: 'assets/products/Eyelashes/Eyelashes.png'
-  }
-  
-  product3:  Product = {
-    name : 'Leotardo',
-    price : 10000,
-    img: 'assets/products/Leothard/Leothard.png'
-  }
-  
-  product4:  Product = {
-    name : 'Paleta de sombras',
-    price : 7000,
-    img: 'assets/products/Shadows/Shadows.png'
-  }
-  
-  product5:  Product = {
-    name : 'Peluca',
-    price : 5000,
-    img: 'assets/products/Wig/Wig.png'
-  }
-  
-
-  products: Array<Product> = [this.product1, this.product2, this.product3, this.product4, this.product5];
- 
-
- // images = [0,1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
-
-  constructor(config: NgbCarouselConfig) {
-    // customize default values of carousels used by this component tree
+export class HomeComponent implements OnInit {
+  productsAll: ProductAll[];
+  constructor(config: NgbCarouselConfig, private produtsServices: ProductService) {
     config.interval = 10000;
     config.wrap = true;
     config.keyboard = false;
     config.pauseOnHover = false;
+  }
+  ngOnInit() {
+    this.loadproduct();
+  }
+  loadproduct() {
+    this.produtsServices
+      .getProductHome()
+      .subscribe(
+        data => (this.productsAll = data)
+      );
   }
 }

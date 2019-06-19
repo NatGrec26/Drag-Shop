@@ -21,6 +21,10 @@ export class ProductService {
   }
   getProduct(): Observable<ProductAll[]> {
     //  return this.http.get<Beneficted>(`${environment.apiEndPoint}/benefited/${benefictedId}/2`);
-    return this.http.get<ProductAll[]>(`${environment.apiEndpoint}/product/productbyId`);
-     }
+    return this.http.get<ProductAll[]>(`${environment.apiEndpoint}/product/product`);
+  }
+  getProductHome(): Observable<ProductAll[]> {
+    //  return this.http.get<Beneficted>(`${environment.apiEndPoint}/benefited/${benefictedId}/2`);
+    return this.http.get<ProductAll[]>(`${environment.apiEndpoint}/product/productHome`);
+  }
 }
