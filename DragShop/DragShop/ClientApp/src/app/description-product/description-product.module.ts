@@ -10,7 +10,6 @@ import { ProductsModule } from '../products/products.module';
 
 const routes: Routes = [
     {
-        //path: 'description-product:value',
         path: 'description-product/:value',
         component: DescriptionProductContainerComponent,
     }
