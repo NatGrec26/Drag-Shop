@@ -7,11 +7,11 @@
 
     <div class="row d-flex justify-content-start">
 
-      <div id="product-list" class="card col-lg-3 col-md-4 col-xs-6  rounded" *ngFor="let product of products">
-        <img [src]='product.img' class="card-img-top img-product img-fluid" alt='product.name'>
+      <div id="product-list" class="card col-lg-3 col-md-4 col-xs-6  rounded" *ngFor="let product of productsAll">
+        <img [src]='product.systemImageUrl' class="card-img-top img-product img-fluid" alt='product.name'>
         <div class="card-footer d-flex d-flex justify-content-between">
           <p class="card-text">{{product.name}}</p>
-          <p class="card-text">₡ {{product.price}}</p>
+          <p class="card-text">₡ {{product.lastPrice}}</p>
         </div>
       </div>
 
