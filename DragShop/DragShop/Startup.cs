@@ -3,12 +3,14 @@ using DragShop.Core.Domain;
 using DragShop.DbContext;
 using DragShop.Middlewares;
 using DragShop.Security;
+using DragShop.Services.Email;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
@@ -44,6 +46,7 @@ namespace DragShop
             services.AddIdentity<User, Role>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
+            services.AddSingleton<IEmailSender, SendGridEmailSender>();
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             services

@@ -48,7 +48,17 @@
       </div>
     </div>
     <div class="col-sm-8 card general-letter" style="padding: 3%;">
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="contactForm">
+        <div *ngIf="!serverResponseHandler || !serverResponseHandler.success ">
+          <div *ngIf="serverResponseHandler && !serverResponseHandler.success" class="alert alert-danger">
+            <strong>Fallo!</strong> {{ serverResponseHandler.message }}
+          </div>
+        </div>
+        <div *ngIf="serverResponseHandler && serverResponseHandler.success " class="success">
+          <div class="alert alert-success">
+            <strong>Exitoso!</strong> {{ serverResponseHandler.message }}
+          </div>
+        </div>
         <div class="input-group mb-3">
           <div class="form-group">
             <div class="input-group-prepend">
@@ -121,7 +131,7 @@
         </div>
         <div class=container>
           <div class="row float-right">
-            <button type="submit" class="btn btn-block center normal-text " [disabled]="!contactForm.valid">Enviar
+            <button (click)="sendEmail()" class="btn btn-block center normal-text " [disabled]="!contactForm.valid">Enviar
               Mensaje</button>
             <br>
             <br>
