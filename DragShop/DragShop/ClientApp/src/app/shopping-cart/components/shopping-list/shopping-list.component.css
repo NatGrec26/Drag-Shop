@@ -11,7 +11,7 @@
 }
 
 a::content {
-    color: rgb(45, 105, 37);
+    color: black;
     font-size: 18px;
     flood-opacity: initial;
 }
@@ -29,10 +29,6 @@ h1 {
     font-size: 28px;
 }
 
-label {
-    font-size: 18px;
-}
-
 .labelV-G {
     font-size: 15px;
     font-weight: bold;
@@ -45,4 +41,8 @@ label {
 .deleteBuutton {
     color: black;
     size: 30px;
+}
+.crumb {
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
