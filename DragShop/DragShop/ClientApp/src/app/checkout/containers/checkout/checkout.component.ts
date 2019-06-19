@@ -10,6 +10,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CheckoutFormService } from '../../services/checkout-form.component';
+import { Observable } from 'rxjs';
+import { ShoppingList } from '../../../store/shopping-cart/models/shopping-list.interface';
+import { ShoppingCartService } from 'src/app/store/shopping-cart/services/shopping-cart-service';
+import { ShoppingCartQuery } from 'src/app/store/shopping-cart/shopping-cart-query';
 
 @Component({
   selector: 'app-checkout-component',
@@ -19,13 +23,17 @@ import { CheckoutFormService } from '../../services/checkout-form.component';
 export class CheckoutComponent implements OnInit {
   serverResponseHandler: ServerResponseHandler;
   checkoutForm: FormGroup;
-
+   shoppingDetails$: Observable<ShoppingList>;
   constructor(
     private router: ActivatedRoute,
     private checkoutFormService: CheckoutFormService,
+    private shoppingCartService: ShoppingCartService,
+    private shoppingCartQuery: ShoppingCartQuery,
   ) { }
+  
   ngOnInit() {
     this.initForm();
+    this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
   }
 
   initForm() {

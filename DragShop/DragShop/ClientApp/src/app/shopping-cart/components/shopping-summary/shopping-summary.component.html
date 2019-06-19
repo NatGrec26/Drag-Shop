@@ -11,8 +11,8 @@
                 <span>Total de artículos</span>
             </div>
             <div class="col-md-4">
-
-                <span>₡0.22</span>
+                <span *ngIf="shoppingDetails$ | async">{{(shoppingDetails$ | async).totalProducts}}</span>
+                <span *ngIf="!(shoppingDetails$ | async)">₡0.00</span>
             </div>
         </div>
         <div class="row typeletter">
@@ -21,7 +21,9 @@
             </div>
             <div class="col-md-4">
                 <div>
-                    <span>₡0.00</span>
+                    <span *ngIf="shoppingDetails$ | async">₡{{(shoppingDetails$ | async).subtotal}}</span>
+                    <span *ngIf="!(shoppingDetails$ | async)">₡0.00</span>
+              
                 </div>
             </div>
         </div>
@@ -40,7 +42,8 @@
                 <span>Total</span>
             </div>
             <div class="col-md-4">
-                <span>₡0.00</span>
+                <span *ngIf="shoppingDetails$ | async">₡{{(shoppingDetails$ | async).subtotal}}</span>
+                <span *ngIf="!(shoppingDetails$ | async)">₡0.00</span>
             </div>
         </div>
         <div class="row typeletter">
@@ -57,12 +60,13 @@
                 <span class="subtitle">Total</span>
             </div>
             <div class="col-md-4">
-                <span>₡0.00</span>
+                    <span *ngIf="shoppingDetails$ | async">₡{{(shoppingDetails$ | async).subtotal}}</span>
+                    <span *ngIf="!(shoppingDetails$ | async)">₡0.00</span>    
             </div>
         </div>
         <br><br>
-        <div class="row text-center">
-            <button type="submit" class="btn btn-block ">Comprar</button>
+        <div class="row text-center" *ngIf="(shoppingDetails$ | async)">
+            <button [routerLink]="['/checkout']" routerLinkActive="router-link-active"  type="submit" class="btn btn-block " data-toggle="modal" data-target="#exampleModal">Comprar</button>
         </div>
         <br>
     </div>
