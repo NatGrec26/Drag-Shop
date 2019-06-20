@@ -99,19 +99,24 @@ export class DescriptionProductContainerComponent implements OnInit {
                         recalculateShoppingDetailQuantities({
                             id: guid(),
                             name: existingData.name,
+                            systemImageUrl: existingData.systemImageUrl,
                             description: existingData.description,
                             lastPrice: existingData.lastPrice,
                             state: existingData.state,
                             tutorial: existingData.tutorial,
                             productID: existingData.productID,
                             subtotal: 0,
+                            taxInterface: 0,
+                            sendingCostInterface: 0,
                             quantity: value.quantity,
+                            tax: existingData.tax,
+                            sendingCost: existingData.sendingCost
                         })
 
                     );
                     this.serverResponseHandler = createSuccessResponse('Producto agregado al carrito de compras', null);
                     this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
-                    console.log(this.shoppingDetails$);
+                    console.log(this.existingData);
                 },
                 error => {
                     if (error instanceof HttpErrorResponse) {

@@ -19,6 +19,8 @@ namespace DragShop.Core.Domain
         public string Description { get; set; }
 
         public int LastPrice { get; set; }
+        public int Tax { get; set; }
+        public int SendingCost { get; set; }
 
         public string State { get; set; }
 

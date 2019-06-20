@@ -4,12 +4,18 @@ AS
 BEGIN 
 SELECT  P.[ProductID]
        ,P.[Name]
+	   ,S.SystemImageUrl
 	   ,P.[Description]
 	   ,P.[LastPrice]
 	   ,P.[State]
 	   ,P.[Tutorial]
+	   ,P.Tax
+	   ,P.SendingCost
 FROM [dbo].[Product] AS P
+INNER JOIN SystemImage AS S
+ON (P.ProductID = S.SystemImageType)
 WHERE P.[ProductID] = @ProductID
+AND S.SystemImageTypeID= 1
 
 END
 GO
