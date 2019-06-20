@@ -40,3 +40,17 @@ CREATE OR ALTER  PROCEDURE [dbo].[SP_GetProductHomes]
        	OFFSET 0 ROWS FETCH NEXT 4 ROWS ONLY
  END
 GO
+
+
+CREATE OR ALTER  PROCEDURE [dbo].[SP_GetProducPictures]  
+	@ProductID INT,
+	@SystemImageTypeID INT
+	AS 
+	BEGIN  
+	SELECT SystemImageUrl
+		  ,SystemImageID
+		   
+	FROM [dbo].[SystemImage] AS S
+	WHERE S.SystemImageTypeID= @SystemImageTypeID AND S.SystemImageType = @ProductID
+ END
+GO

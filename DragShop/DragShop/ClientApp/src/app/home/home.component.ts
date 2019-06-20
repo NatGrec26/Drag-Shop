@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     config.interval = 10000;
     config.wrap = true;
     config.keyboard = false;
-    config.pauseOnHover = false;
+    config.pauseOnHover = true;
   }
   ngOnInit() {
     this.loadproduct();
