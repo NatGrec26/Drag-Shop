@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 import { environment } from '../../../environments/environment';
-import { map, catchError } from 'rxjs/operators';
 import { Picture } from '../models/picture.interface';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,10 +14,10 @@ export class DescriptionPictureService {
   ) { }
 
   getPicture(productId: number): Observable<Picture[]> {
-    return this.http.get<Picture[]>(`${environment.apiEndpoint}/product/${productId}/1`);
+    return this.http.get<Picture[]>(`${environment.apiEndpoint}/product/pictures/${productId}/1`);
   }
 
   getPictureDeco(productId: number): Observable<Picture[]> {
-    return this.http.get<Picture[]>(`${environment.apiEndpoint}/benefited/${productId}/3`);
+    return this.http.get<Picture[]>(`${environment.apiEndpoint}/product/pictures/${productId}/2`);
   }
 }

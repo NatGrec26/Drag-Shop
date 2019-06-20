@@ -40,7 +40,12 @@ ngb-carousel {
 .carousel-caption {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
-    text-shadow: black 0.1em 0.1em 0.2em  
+    text-shadow: black 0.1em 0.1em 0.2em;
+    
+}
+
+.carousel-caption p{
+   color: white;  
 }
 
 .container-p {

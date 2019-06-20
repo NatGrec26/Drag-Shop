@@ -6,28 +6,25 @@
 				<div class="wrapper row">
 					<div class="preview col-md-6">
 						
-						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1"><img src="assets/img/m1.jpg" /></div>
-						  <div class="tab-pane" id="pic-2"><img src="assets/img/m1.jpg"/></div>
-						  <div class="tab-pane" id="pic-3"><img src="assets/img/m1.jpg" /></div>
-						  <div class="tab-pane" id="pic-4"><img src="assets/img/m1.jpg" /></div>
-						  <div class="tab-pane" id="pic-5"><img src="assets/img/m1.jpg" /></div>
-            </div>
-            
-						<ul class="preview-thumbnail nav nav-tabs">
-						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="assets/img/m1.jpg" /></a></li>
-						  <li><a data-target="#pic-2" data-toggle="tab"><img  src="assets/img/m1.jpg"  /></a></li>
-						  <li><a data-target="#pic-3" data-toggle="tab"><img src="assets/img/m1.jpg" /></a></li>
-						  <li><a data-target="#pic-4" data-toggle="tab"><img src="assets/img/m1.jpg" /></a></li>
-						  <li><a data-target="#pic-5" data-toggle="tab"><img src="assets/img/m1.jpg" /></a></li>
-						</ul>
+						<div class="preview-pic tab-content" >
+              <div class="tab-pane active"  *ngFor="let picture of pictures" id="pic-{{picture.systemImageID}}" ><img  class="img-principal" [src]='picture.systemImageUrl'/></div>
+              <div class="tab-pane "  *ngFor="let pictures of picturesDeco" id="pic-{{pictures.systemImageID}}"><img class="img-principal" [src]='pictures.systemImageUrl'/></div>
+             </div>
+             
+             <ul class="preview-thumbnail nav nav-tabs" >
+               <li class="active" *ngFor="let picture of pictures"><a  [attr.data-target]="'#pic-' + picture.systemImageID" data-toggle="tab"><img  [src]='picture.systemImageUrl' /></a></li>
+               <li *ngFor="let pictures of picturesDeco" ><a [attr.data-target]="'#pic-' + pictures.systemImageID" data-toggle="tab" ><img [src]='pictures.systemImageUrl'/></a></li>
+             </ul>
 						
-					</div>
-					<div class="details col-md-6">
-						<h3 class="product-title">Brochas</h3>
+          </div>
+          
+    
+
+					<div class="details col-md-6" >
+						<h3 class="product-title">{{productDetail?.name}}</h3>
 						
-						<p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-						<h4 class="price">current price: <span>$180</span></h4>
+						<p class="product-description">{{productDetail?.description}}</p>
+						<h4 class="price">Precio actual: <span>₡ {{productDetail?.lastPrice}}</span></h4>
    
             <div class="row margin-top">
             <div class="col-md-4">
