@@ -10,6 +10,7 @@ namespace DragShop.Models
         public int ProductID { get; set; }
 
         public string Name { get; set; }
+        public string SystemImageUrl { get; set; }
 
         public string Description { get; set; }
 
@@ -18,5 +19,7 @@ namespace DragShop.Models
         public string State { get; set; }
 
         public string Tutorial { get; set; }
+        public decimal Tax { get; set; }
+        public int SendingCost { get; set; }
     }
 }

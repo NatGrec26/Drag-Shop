@@ -1,79 +1,79 @@
+<br>
 <div class="row">
-
-    <div class="col-md-4">
-        <div class="container">
-            <div class="row">
-              <div class="col-md-8 littleLetter">
-                <h4 class="littleLetter">Carro de compras </h4>
-              </div>
-              <div class="col-md-4">
-                <span style="color:black">
-                  <i class="fa fa-shopping-cart">
-                    <b *ngIf="shoppingDetails$ | async">{{(shoppingDetails$ | async).totalProducts}}</b>
-                    <b *ngIf="!(shoppingDetails$ | async)">0</b>
-                  </i>
-                </span>
-              </div>
-            </div>
-            <div *ngIf="shoppingDetails$ | async">
-              <div class="row" *ngFor="let productDeatil of (shoppingDetails$ | async).orderDetails">
-                <div class="col-md-8 littleLetter">
-                  <span>{{productDeatil.name}}</span>
-                </div>
-          
-                <div class="col-md-4">
-                  <span>₡ {{ productDeatil.lastPrice * productDeatil.quantity}}</span>
-                </div>
-              </div>
-            </div>
-            <div *ngIf="!(shoppingDetails$ | async)">
-              <div class="row">
-                <div class="col-md-8 littleLetter">
-                  <span>No hay productos</span>
-                </div>
-          
-                <div class="col-md-4">
-                  <span>₡ 0.00</span>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <p>Total <span class="price" style="color:black">
-                <b *ngIf="shoppingDetails$ | async">₡{{(shoppingDetails$ | async).subtotal}}</b>
-                <b *ngIf="!(shoppingDetails$ | async)">₡0.00</b>
-              </span>
-            </p>
-          </div>
+<br>
+  <div class="col-md-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 littleLetter">
+          <h4 class="littleLetter">Carro de compras </h4>
+        </div>
+        <div class="col-md-4">
+          <span style="color:black">
+            <i class="fa fa-shopping-cart">
+              <b *ngIf="shoppingDetails$ | async">{{(shoppingDetails$ | async).totalProducts}}</b>
+              <b *ngIf="!(shoppingDetails$ | async)">0</b>
+            </i>
+          </span>
+        </div>
       </div>
+      <div *ngIf="shoppingDetails$ | async">
+        <div class="row" *ngFor="let productDeatil of (shoppingDetails$ | async).orderDetails">
+          <div class="col-md-8 littleLetter">
+            <span>{{productDeatil.name}}</span>
+          </div>
+
+          <div class="col-md-4">
+            <span>₡ {{ productDeatil.lastPrice * productDeatil.quantity}}</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!(shoppingDetails$ | async)">
+        <div class="row">
+          <div class="col-md-8 littleLetter">
+            <span>No hay productos</span>
+          </div>
+
+          <div class="col-md-4">
+            <span>₡ 0.00</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <p>Total <span class="price" style="color:black">
+          <b *ngIf="shoppingDetails$ | async">₡{{(shoppingDetails$ | async).subtotal}}</b>
+          <b *ngIf="!(shoppingDetails$ | async)">₡0.00</b>
+        </span>
+      </p>
+    </div>
+  </div>
 
 
-    <div class="col-md-8">
-        <form [formGroup]="checkoutForm">
+  <div class="col-md-8">
+    <form [formGroup]="checkoutForm">
       <div class="row">
         <div class="col-50">
           <h3 class="littleLetter">Detalle de la compra</h3>
 
           <div class="input-group mb-3">
-              <div class="form-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text letter">Persona <span class="requiered">*</span></span>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" formControlName="firstName" required class="form-control border1 letter"
-              >
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control border1 letter" placeholder="Apellido" formControlName="lastName"
-                  [ngClass]="{'is-invalid': checkoutForm.get('lastName').touched && checkoutForm.get('lastName').invalid}">
-                <div *ngIf="checkoutForm.get('lastName').touched && checkoutForm.get('lastName').invalid"
-                  class="invalid-feedback">
-                  <div *ngIf="checkoutForm.get('lastName').errors.required">Apellido es requerido</div>
-                  <div *ngIf="checkoutForm.get('lastName').errors.pattern">Solo se permiten letras</div>
-                  <div *ngIf="checkoutForm.get('lastName').errors?.maxlength">Máximo 50 dígitos </div>
-                </div>
+            <div class="form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text normal-text">Persona <span class="requiered">*</span></span>
               </div>
             </div>
+            <div class="form-group">
+              <input type="text" formControlName="firstName" required class="form-control border1 letter">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control border1 letter" placeholder="Apellido" formControlName="lastName"
+                [ngClass]="{'is-invalid': checkoutForm.get('lastName').touched && checkoutForm.get('lastName').invalid}">
+              <div *ngIf="checkoutForm.get('lastName').touched && checkoutForm.get('lastName').invalid"
+                class="invalid-feedback">
+                <div *ngIf="checkoutForm.get('lastName').errors.required">Apellido es requerido</div>
+                <div *ngIf="checkoutForm.get('lastName').errors.pattern">Solo se permiten letras</div>
+                <div *ngIf="checkoutForm.get('lastName').errors?.maxlength">Máximo 50 dígitos </div>
+              </div>
+            </div>
+          </div>
 
           <div class="form-group">
             <label> Correo electrónico: </label>
@@ -110,32 +110,13 @@
               <div *ngIf="checkoutForm.get('message').errors?.maxlength">Máximo 400 dígitos </div>
             </div>
           </div>
-
-          <label for="fname" class="littleLetter">Pago con Paypal</label>
-          <div class="center1">
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_xclick">
-              <input type="hidden" name="business" value="jhonnyrodriguez214@gmail.com">
-              <input type="hidden" name="lc" value="AL">
-              <input type="hidden" name="item_name" value="Cafe Miel">
-              <input type="hidden" name="item_number" value="3">
-              <input type="hidden" name="amount" value="8.00">
-              <input type="hidden" name="currency_code" value="USD">
-              <input type="hidden" name="button_subtype" value="services">
-              <input type="hidden" name="no_note" value="0">
-              <input type="hidden" name="tax_rate" value="2.000">
-              <input type="hidden" name="shipping" value="2.00">
-              <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-              <input type="image" src="https://www.paypalobjects.com/es_XC/AR/i/btn/btn_buynowCC_LG.gif" border="0"
-                name="submit" alt="PayPal - The safer, easier way to pay online!">
-              <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-            </form>
-          </div>
           <div class="row text-center" *ngIf="(shoppingDetails$ | async)">
-          <button (click)="cleanOrder()"  routerLinkActive="router-link-active"  type="submit" class="btn btn-block center">Pagar</button>
-       </div>
+            <button (click)="cleanOrder()" routerLinkActive="router-link-active" type="submit"
+              class="btn btn-block center" [disabled]="!checkoutForm.valid">Pagar</button>
+          </div>
         </div>
       </div>
     </form>
-    </div>
+  </div>
 </div>
+<br>
