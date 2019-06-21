@@ -28,7 +28,8 @@ img {
   
   .preview-thumbnail.nav-tabs {
     border: none;
-    margin-top: 15px; }
+    margin-top: 15px; 
+    margin-left: 80px;}
     .preview-thumbnail.nav-tabs li {
       width: 18%;
       margin-right: 2.5%; }
@@ -81,7 +82,8 @@ img {
             flex-grow: 1; }
   
   .product-title, .price, .sizes, .colors {
-    text-transform: UPPERCASE;
+    /* text-transform: UPPERCASE; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold; }
   
   .checked, .price span {
@@ -164,4 +166,17 @@ img {
   /*# sourceMappingURL=style.css.map */
   .margin-top {
       margin-top: 20px;
+  }
+
+  link {
+    text-decoration:none;
+    color: orange;
+    } 
+
+    .letter-bold {
+      font-weight: bold
+    }
+
+  hr {
+    background: #ff9f1a;
   }
