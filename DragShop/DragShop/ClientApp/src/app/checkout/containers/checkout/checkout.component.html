@@ -1,17 +1,25 @@
 <br>
+
+<div class="general-letter crumb">
+  <label>Usted está en: <i class="fa fa-home" [routerLink]='["/"]'> <label class="general-letter"> Inicio</label></i>
+    /<a [routerLink]='["/shopping-cart"]'> <label class="general-letter"> Carro de compras</label></a>
+    /
+    Finalizar pago</label>
+</div>
+
 <div class="row">
-<br>
+  <br>
   <div class="col-md-4">
     <div class="container">
       <div class="row">
         <div class="col-md-8 littleLetter">
-          <h4 class="littleLetter">Carro de compras </h4>
+          <h6 class="normal-text">Carro de compras </h6>
         </div>
         <div class="col-md-4">
           <span style="color:black">
             <i class="fa fa-shopping-cart">
-              <b *ngIf="shoppingDetails$ | async">{{(shoppingDetails$ | async).totalProducts}}</b>
-              <b *ngIf="!(shoppingDetails$ | async)">0</b>
+              <b class="normal-text" *ngIf="shoppingDetails$ | async">{{(shoppingDetails$ | async).totalProducts}}</b>
+              <b class="normal-text" *ngIf="!(shoppingDetails$ | async)">0</b>
             </i>
           </span>
         </div>
@@ -19,31 +27,39 @@
       <div *ngIf="shoppingDetails$ | async">
         <div class="row" *ngFor="let productDeatil of (shoppingDetails$ | async).orderDetails">
           <div class="col-md-8 littleLetter">
-            <span>{{productDeatil.name}}</span>
+            <span class="normal-text">{{productDeatil.name}}</span>
           </div>
 
           <div class="col-md-4">
-            <span>₡ {{ productDeatil.lastPrice * productDeatil.quantity}}</span>
+            <span class="normal-text">₡ {{ productDeatil.lastPrice * productDeatil.quantity}}</span>
           </div>
         </div>
       </div>
       <div *ngIf="!(shoppingDetails$ | async)">
         <div class="row">
           <div class="col-md-8 littleLetter">
-            <span>No hay productos</span>
+            <span class="normal-text">No hay productos</span>
           </div>
 
           <div class="col-md-4">
-            <span>₡ 0.00</span>
+            <span class="normal-text">₡ 0.00</span>
           </div>
         </div>
       </div>
       <hr>
-      <p>Total <span class="price" style="color:black">
-          <b *ngIf="shoppingDetails$ | async">₡{{(shoppingDetails$ | async).subtotal}}</b>
-          <b *ngIf="!(shoppingDetails$ | async)">₡0.00</b>
-        </span>
-      </p>
+      <div *ngIf="shoppingDetails$ | async">
+        <div class="row" *ngFor="let productDeatil of (shoppingDetails$ | async).orderDetails">
+          <div class="col-md-8 littleLetter">
+            <span class="normal-text">Total</span>
+          </div>
+
+          <div class="price" class="col-md-4">
+            <b class="normal-text" *ngIf="shoppingDetails$ | async">₡{{(shoppingDetails$ | async).subtotal}}</b>
+            <b class="normal-text" *ngIf="!(shoppingDetails$ | async)">₡0.00</b>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -52,7 +68,7 @@
     <form [formGroup]="checkoutForm">
       <div class="row">
         <div class="col-50">
-          <h3 class="littleLetter">Detalle de la compra</h3>
+          <h3 class="normal-text">Detalle de la compra</h3>
 
           <div class="input-group mb-3">
             <div class="form-group">
@@ -61,10 +77,19 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="text" formControlName="firstName" required class="form-control border1 letter">
+              <input type="text" placeholder="Nombre" formControlName="firstName" required
+                class="form-control border1 normal-text"
+                [ngClass]="{'is-invalid': checkoutForm.get('firstName').touched && checkoutForm.get('firstName').invalid}">
+              <div *ngIf="checkoutForm.get('firstName').touched && checkoutForm.get('lastName').invalid"
+                class="invalid-feedback">
+                <div *ngIf="checkoutForm.get('firstName').errors.required">Nombre es requerido</div>
+                <div *ngIf="checkoutForm.get('firstName').errors.pattern">Solo se permiten letras</div>
+                <div *ngIf="checkoutForm.get('firstName').errors?.maxlength">Máximo 50 dígitos </div>
+              </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control border1 letter" placeholder="Apellido" formControlName="lastName"
+              <input type="text" class="form-control border1 normal-text" placeholder="Apellido"
+                formControlName="lastName"
                 [ngClass]="{'is-invalid': checkoutForm.get('lastName').touched && checkoutForm.get('lastName').invalid}">
               <div *ngIf="checkoutForm.get('lastName').touched && checkoutForm.get('lastName').invalid"
                 class="invalid-feedback">
@@ -76,14 +101,14 @@
           </div>
 
           <div class="form-group">
-            <label> Correo electrónico: </label>
+            <label class="normal-text-check"> Correo electrónico: </label>
             <span class="requiered">*</span><br>
             <div class="input-group mb-3">
-              <input class="form-control formControlName border1 letter" type="text" formControlName="email" required
-                placeholder="Su correo electrónico"
+              <input class="form-control formControlName border1 normal-text" type="text" formControlName="email"
+                required placeholder="Su correo electrónico"
                 [ngClass]="{'is-invalid': checkoutForm.get('email').touched && checkoutForm.get('email').invalid}">
               <div class="input-group-append ">
-                <span class="input-group-text letter">@ejemplo.com</span>
+                <span class="input-group-text normal-text">@ejemplo.com</span>
               </div>
               <div *ngIf="checkoutForm.get('email').touched && checkoutForm.get('email').invalid"
                 class="invalid-feedback">
@@ -97,12 +122,11 @@
       </div>
       <div class="row">
         <div class="col-50">
-          <h3 class="littleLetter">Pago</h3>
           <div class="form-group">
-            <label for="comment"> Mensaje:</label>
+            <label class="normal-text-check" for="comment"> Mensaje:</label>
             <span class="requiered">*</span>
-            <textarea class="form-control border1 letter" rows="5" id="comment" type="text" formControlName="message"
-              required
+            <textarea class="form-control border1 normal-text" rows="5" id="comment" type="text"
+              formControlName="message" required
               [ngClass]="{'is-invalid': checkoutForm.get('message').touched && checkoutForm.get('message').invalid}"></textarea>
             <div *ngIf="checkoutForm.get('message').touched && checkoutForm.get('message').invalid"
               class="invalid-feedback">
@@ -112,7 +136,7 @@
           </div>
           <div class="row text-center" *ngIf="(shoppingDetails$ | async)">
             <button (click)="cleanOrder()" routerLinkActive="router-link-active" type="submit"
-              class="btn btn-block center" [disabled]="!checkoutForm.valid">Pagar</button>
+              class="end-payment btn btn-default" [disabled]="!checkoutForm.valid">Pagar</button>
           </div>
         </div>
       </div>

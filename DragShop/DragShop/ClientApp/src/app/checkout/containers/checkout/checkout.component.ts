@@ -29,9 +29,9 @@ export class CheckoutComponent implements OnInit {
     private checkoutFormService: CheckoutFormService,
     private shoppingCartService: ShoppingCartService,
     private shoppingCartQuery: ShoppingCartQuery,
-    private routerLink:Router
+    private routerLink: Router
   ) { }
-  
+
   ngOnInit() {
     this.initForm();
     this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
@@ -49,9 +49,9 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-   cleanOrder(){
+   cleanOrder() {
     this.shoppingCartService.removeList();
-    alert("Su compra se realizó con éxito, muchas gracias por elegirnos.");
+    alert('Su compra se realizó con éxito, muchas gracias por elegirnos.');
     this.routerLink.navigate(['/']);
    }
 

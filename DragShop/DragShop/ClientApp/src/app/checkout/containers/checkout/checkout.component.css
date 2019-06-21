@@ -36,17 +36,15 @@
   
 
   
-  label {
-    margin-bottom: 10px;
-    display: block;
-  }
-  
+  .crumb {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
   .icon-container {
     margin-bottom: 20px;
     padding: 7px 0;
     font-size: 24px;
   }
-  
   .btn {
     background-color:rgb(41, 41, 41);
     color: white;
@@ -106,6 +104,26 @@
     border-color: transparent transparent #fff transparent;
     top: 7px;
   }
+
+  a{
+    color: black;
+    font-size: 16px;
+    font-family: "Verdana";
+    }
+
+    i{
+      color: black;
+      font-size: 16px;
+      }
+    
+ 
+
+  .normal-text-check{
+    color: black;
+      font-size: 18px;
+  }
+
+ 
   /*style the items (options), including the selected item:*/
   .select-items div,.select-selected {
     color: #ffffff;
@@ -165,11 +183,6 @@
     border-image-width: 1;
   }
 
-  .littleLetter{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    line-height: 1.5em;
-    text-align : justify;
-  }
 
   h2 {
     font-family: "Verdana";
@@ -184,5 +197,17 @@ h1 {
 h3 {
   font-family: "Verdana";
   font-size: 18px;
-  text-align: center;
 }
+
+.end-payment, .like {
+  background: #ff9f1a;
+  padding: 1.2em 1.5em;
+  border: none;
+  text-transform: UPPERCASE;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 80px;
+}
+  .end-payment:hover, .like:hover {
+    background: #b36800;
+    color: #fff; }
