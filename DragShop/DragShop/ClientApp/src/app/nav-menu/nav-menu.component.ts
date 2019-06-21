@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ShoppingList } from '../store/shopping-cart/models/shopping-list.interface';
+import * as $ from 'jquery';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nav-menu',
