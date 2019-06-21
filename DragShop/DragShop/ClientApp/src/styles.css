@@ -39,25 +39,12 @@
         color: black;
     }
 
-/* 
-    html {
-        cursor: url('assets/img/galery_11.jpg'), default;
-      } */
 
-      /* .foo {
-        cursor: url('assets/img/27222.png') 10 12;
-      } */
-
-      a {
-        cursor: url("http://181.40.66.98/public/9309530625.gif"), auto !important;
-      }
-      
-      .content img {
-        cursor: url("http://181.40.66.98/public/9309530625.gif"), auto !important;
-      }
-
-      html {
-        cursor: url("http://181.40.66.98/public/9309530625.gif"), auto !important;
-    }
-
-    
+ 
+   body {
+        cursor:  url(../../ClientApp/src/assets/img/brocha.cur), pointer;
+   }
+       
+   body :hover {
+    cursor:  url(../../ClientApp/src/assets/img/brocha.cur), pointer;
+}
