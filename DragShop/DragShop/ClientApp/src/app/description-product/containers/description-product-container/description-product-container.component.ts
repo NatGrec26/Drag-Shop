@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, Params, ParamMap } from '@angular/router';
 import { ProductHome } from '../../../products/models/products-home.interface';
 import { SelectProduct } from '../../models/select-product.interface';
 import { ProductIdService } from '../../services/product-id.service';
@@ -27,6 +27,7 @@ import { FormGroup } from '@angular/forms';
 import { DescriptionProductItemFormService } from '../../services/description-product-item.services';
 import { ProductService } from '../../../products/services/product.service';
 import { ProductDetail } from '../../models/product-detail.interface';
+import { ProductAll } from 'src/app/products/models/products-all.interface';
 
 @Component({
     selector: 'app-description-product-container',
@@ -46,6 +47,7 @@ export class DescriptionProductContainerComponent implements OnInit {
     shoppingDetails$: Observable<ShoppingList>;
     data: Product = null;
     detailProductForm: FormGroup;
+    productsAll: ProductAll[];
 
     public currentQuantity = 1;
     constructor(
@@ -57,15 +59,25 @@ export class DescriptionProductContainerComponent implements OnInit {
         private servicePictures: DescriptionPictureService,
         private serviceDetail: ProductDetailServices,
         private productDetailItemFormService: DescriptionProductItemFormService,
+        private produtsServices: ProductService,
+        private routerLink:Router,
+        private activeRoute: ActivatedRoute,
     ) { }
   
     ngOnInit() {
+        // +this.route.snapshot.paramMap.get('value')
+        this.activeRoute.paramMap.subscribe(routeParams => {
+            this.loadData(routeParams);
+        });
+    }
+    
+    loadData(params: ParamMap) {
         this.initForm();
-        this.productId = +this.route.snapshot.paramMap.get('value');
+        this.productId = +params.get('value');
         this.getPicture(this.productId);
         this.getPicturesDeco(this.productId);
         this.getProductDetail(this.productId);
-   
+        this.loadproduct();
     }
 
     initForm() {
@@ -88,9 +100,17 @@ export class DescriptionProductContainerComponent implements OnInit {
             );
     }
 
-   
+    loadproduct() {
+        this.produtsServices
+          .getProductHome()
+          .subscribe(
+            data => (this.productsAll = data)
+            
+          );
+    }
 
     getExistingProductSelect(value: SelectProduct) {
+
         this.serviceid.getExistingProduct(this.productId)
             .subscribe(
                 existingData => {
@@ -116,7 +136,6 @@ export class DescriptionProductContainerComponent implements OnInit {
                     );
                     this.serverResponseHandler = createSuccessResponse('Producto agregado al carrito de compras', null);
                     this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
-                    console.log(this.existingData);
                 },
                 error => {
                     if (error instanceof HttpErrorResponse) {
@@ -130,15 +149,18 @@ export class DescriptionProductContainerComponent implements OnInit {
     }
 
     onSubmitProduct() {
+        // if (this.detailProductForm.value > 0) {
         this.getExistingProductSelect(this.detailProductForm.value);
-        console.log(this.detailProductForm.value);
+        this.routerLink.navigate(['/shopping-cart']);
+        // } else if (this.detailProductForm.value <= "") {
+        //     alert("La cantidad debe ser superior a 0.");
+        // }
     }
 
     getPicturesDeco(productId: number) {
         this.servicePictures.getPictureDeco(productId)
             .subscribe(
                 picturesDeco => { this.picturesDeco = picturesDeco; });
-              
     }
 
 

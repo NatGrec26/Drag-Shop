@@ -27,8 +27,7 @@ export class ShoppingCartService {
 
   addElement(item: ShoppingDetail) {
    const currentList = this.shoppingCartQuery.getActive();
-   console.log("Soy current list",currentList);
-    if (!currentList) {
+      if (!currentList) {
       const list = this.updateShoppingListDetails(createShoppingList(), [item]);
       this.addList(list);
       this.selectList(list.id);
