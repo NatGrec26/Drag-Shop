@@ -60,3 +60,14 @@ CREATE OR ALTER  PROCEDURE [dbo].[SP_GetProducPictures]
 	WHERE S.SystemImageTypeID= @SystemImageTypeID AND S.SystemImageType = @ProductID
  END
 GO
+
+CREATE OR ALTER  PROCEDURE [dbo].[SP_GetInfo]
+@InfoID INT
+AS
+ 
+BEGIN 
+SELECT CI.CompanyInformationDescription  
+FROM [dbo].CompanyInformation AS CI
+    WHERE CI.TypeCompanyInformationID = @InfoID
+END
+GO
