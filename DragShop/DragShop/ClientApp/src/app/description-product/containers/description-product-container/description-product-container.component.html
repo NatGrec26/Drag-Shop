@@ -70,7 +70,7 @@
   <div class="row">
       <div id="product-list" class="card col-lg-3 col-md-3 col-xs-3  rounded" *ngFor="let product of productsAll">
           <a [routerLink]='["/description-product", product.productID]'>              
-          <img [src]='product.systemImageUrl' class="card-img-top img-product img-fluid" alt='product.name'> </a>
+          <img [src]='product.systemImageUrl' class="card-img-top img-product img-fluid img-carousel" alt='product.name'> </a>
           <a [routerLink]='["/description-product", product.productID]'>
           <div class="card-footer d-flex d-flex justify-content-between">
             <p class="card-text">{{product.name}}</p>
