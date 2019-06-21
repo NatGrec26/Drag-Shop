@@ -99,7 +99,6 @@
               </div>
             </div>
           </div>
-
           <div class="form-group">
             <label class="normal-text-check"> Correo electrónico: </label>
             <span class="requiered">*</span><br>
@@ -118,6 +117,40 @@
               </div>
             </div>
           </div>
+          <div class="form-group">
+            <label class="normal-text-check"> Número de tarjeta: </label>
+            <span class="requiered">*</span><br>
+            <div class="input-group mb-3">
+              <input class="form-control formControlName border1 normal-text" type="text" formControlName="cardNumber"
+                required placeholder="XXXX-XXXX-XXXX-XXXX"
+                [ngClass]="{'is-invalid': checkoutForm.get('cardNumber').touched && checkoutForm.get('cardNumber').invalid}">
+              <div *ngIf="checkoutForm.get('cardNumber').touched && checkoutForm.get('cardNumber').invalid"
+                class="invalid-feedback">
+                <div *ngIf="checkoutForm.get('cardNumber').errors.required">Número de tarjeta es requerido</div>
+                <div *ngIf="checkoutForm.get('cardNumber').errors.email">Número de tarjeta debe ser valido</div>
+                <div *ngIf="checkoutForm.get('cardNumber').errors?.maxlength">Máximo 19 dígitos </div>
+                <div *ngIf="checkoutForm.get('cardNumber').errors?.minLength">Mínimo 19 dígitos </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="normal-text-check"> Código de seguridad: </label>
+            <span class="requiered">*</span><br>
+            <div class="input-group mb-3">
+              <input class="form-control formControlName border1 normal-text" type="text" formControlName="cvv"
+                required placeholder="XXX"
+                [ngClass]="{'is-invalid': checkoutForm.get('cvv').touched && checkoutForm.get('cvv').invalid}">
+              <div *ngIf="checkoutForm.get('cvv').touched && checkoutForm.get('cvv').invalid"
+                class="invalid-feedback">
+                <div *ngIf="checkoutForm.get('cvv').errors.required">Código de seguridad es requerido</div>
+                <div *ngIf="checkoutForm.get('cvv').errors.email">Código de seguridad debe ser valido</div>
+                <div *ngIf="checkoutForm.get('cvv').errors.pattern">Código de seguridad debe ser valido</div>
+                <div *ngIf="checkoutForm.get('cvv').errors?.maxlength">Código de seguridad 3 dígitos </div>
+                <div *ngIf="checkoutForm.get('cvv').errors?.minLength">Código de seguridad 3 dígitos </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="row">
@@ -134,9 +167,9 @@
               <div *ngIf="checkoutForm.get('message').errors?.maxlength">Máximo 400 dígitos </div>
             </div>
           </div>
-          <div class="row text-center" *ngIf="(shoppingDetails$ | async)">
+          <div class="row float-right" *ngIf="(shoppingDetails$ | async)">
             <button (click)="cleanOrder()" routerLinkActive="router-link-active" type="submit"
-              class="end-payment btn btn-default" [disabled]="!checkoutForm.valid">Pagar</button>
+              class="end-payment btn btn-default" [disabled]="!checkoutForm.valid">Finalizar pago</button>
           </div>
         </div>
       </div>
