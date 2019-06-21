@@ -23,6 +23,9 @@ const routes: Routes = [
     ProductsModule,
     RouterModule.forChild(routes),
   ],
+  exports: [
+    RouterModule,
+  ],
   declarations: [
  //   ...fromContainers.containers,
    // ...components
