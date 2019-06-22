@@ -1,7 +1,14 @@
- <header>
-        <div class="row color-header-up">
-            <a [routerLink]='["/"]' class="navbar-brand" href="#">
-                <img style="height:300px; width:700px; background-position-x:center; padding-left: 5%;" class="img-fluid" src="assets/logoHome.png">
-            </a>
-        </div>
-</header> 
+<header>
+    <div class="row color-header-up">
+        <a data-toggle="tooltip" title="Inicio" [routerLink]='["/"]' class="navbar-brand" href="#">
+            <img style="height:300px; width:700px; background-position-x:center; padding-left: 5%;" class="img-fluid"
+                src="assets/logoHome.png">
+        </a>
+    </div>
+</header>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

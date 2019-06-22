@@ -51,7 +51,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-xs-12">
-                    <a [routerLink]='["/"]'>
+                    <a data-toggle="tooltip" title="Inicio" [routerLink]='["/"]'>
                         <img style="height:246px; width:245px; padding-left: 5%;" class="img-fluid"
                             src="assets/logoFace.png"></a>
                 </div>
@@ -87,3 +87,9 @@
 <div class="footer-bottom general-letter">
     <p>Copyright © 2019. Todos los derechos reservados Drag&Shop</p>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
