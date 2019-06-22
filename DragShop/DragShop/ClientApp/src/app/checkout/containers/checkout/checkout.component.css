@@ -51,6 +51,12 @@
     margin: auto;
   
   }
+
+  .img-little{
+    width: 25px;
+   height: 25px;
+  }
+
   .btn:hover {
     background-color: #45a049;
   }

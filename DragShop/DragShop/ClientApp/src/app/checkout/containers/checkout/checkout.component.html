@@ -16,11 +16,10 @@
           <h6 class="normal-text">Carro de compras </h6>
         </div>
         <div class="col-md-4">
-          <span style="color:black">
-            <i class="fa fa-shopping-cart">
+          <span style="color:black">    
               <b class="normal-text" *ngIf="shoppingDetails$ | async">{{(shoppingDetails$ | async).totalProducts}}</b>
               <b class="normal-text" *ngIf="!(shoppingDetails$ | async)">0</b>
-            </i>
+              <img  class="img-little" src="assets/bagblack.png">
           </span>
         </div>
       </div>
