@@ -98,7 +98,7 @@
           <div *ngIf="contactForm.get('phoneNumber').touched && contactForm.get('phoneNumber').invalid"
             class="invalid-feedback">
             <div *ngIf="contactForm.get('phoneNumber').errors.required">Teléfono es requerido</div>
-            <div *ngIf="contactForm.get('phoneNumber').errors.pattern">Teléfono debe ser valido</div>
+            <div *ngIf="contactForm.get('phoneNumber').errors.pattern">Teléfono debe ser válido</div>
             <div *ngIf="contactForm.get('phoneNumber').errors?.maxlength">Máximo 8 números</div>
           </div>
         </div>

@@ -1,7 +1,8 @@
 <header>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
     <div class="container">
-      <a class="navbar-brand" [routerLink]='["/"]'><i class="fa fa-home"></i> Inicio</a>
+      <a data-toggle="tooltip" title="Inicio" class="navbar-brand" [routerLink]='["/"]'><i class="fa fa-home"></i>
+        Inicio</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
         aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
@@ -27,9 +28,14 @@
       </div>
       <div>
         <a [routerLink]='["/shopping-cart"]'>
-          <img  class="img-fluid car-icon" src="assets/bag.png"></a>
+          <img data-toggle="tooltip" title="Carro de compras" class="img-fluid car-icon" src="assets/bag.png"></a>
       </div>
     </div>
   </nav>
-
 </header>
+
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
