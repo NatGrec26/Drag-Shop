@@ -112,7 +112,7 @@
             </div>
             <div *ngIf="contactForm.get('email').touched && contactForm.get('email').invalid" class="invalid-feedback">
               <div *ngIf="contactForm.get('email').errors.required">Correo es requerido</div>
-              <div *ngIf="contactForm.get('email').errors.email">Correo debe ser valido</div>
+              <div *ngIf="contactForm.get('email').errors.pattern">Correo debe ser valido</div>
               <div *ngIf="contactForm.get('email').errors?.maxlength">Máximo 100 dígitos </div>
             </div>
           </div>
