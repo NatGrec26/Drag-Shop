@@ -38,3 +38,13 @@
         text-decoration:none;
         color: black;
     }
+
+
+ 
+   body {
+        cursor:  url(../../ClientApp/src/assets/img/brocha.cur), url(../../ClientApp/src/assets/img/brocha.png), pointer;
+   }
+       
+   body :hover {
+    cursor:  url(../../ClientApp/src/assets/img/brocha.cur), url(../../ClientApp/src/assets/img/brocha.png), pointer;
+}

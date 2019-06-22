@@ -1,31 +1,39 @@
+<br>
+<div class="general-letter crumb">
+    <label>Usted está en: <i class="fa fa-home" [routerLink]='["/"]'> 
+    <label class="general-letter"> Inicio</label></i> /
+    <label [routerLink]='["/products"]'>Productos</label>/
+      Descripción del producto </label>
+  </div>
+<br>
+  <div>
+      <h1 class="page-title general-letter">Descripción del producto</h1>
+ </div>
+<br>
+
+    
 <div class="container">
-  <br>
-  <br>
  <form [formGroup]="detailProductForm">
 			<div class="container-fliud">
 				<div class="wrapper row">
 					<div class="preview col-md-6">
-						
 						<div class="preview-pic tab-content" >
-              <div class="tab-pane active"  *ngFor="let picture of pictures" id="pic-{{picture.systemImageID}}" ><img  class="img-principal" [src]='picture.systemImageUrl'/></div>
-              <div class="tab-pane "  *ngFor="let pictures of picturesDeco" id="pic-{{pictures.systemImageID}}"><img class="img-principal" [src]='pictures.systemImageUrl'/></div>
+              <div class="tab-pane active" *ngFor="let picture of pictures" id="pic-{{picture.systemImageID}}" ><img  class="img-principal" [src]='picture.systemImageUrl'/></div>
+              <div class="tab-pane" *ngFor="let pictures of picturesDeco" id="pic-{{pictures.systemImageID}}"><img class="img-principal" [src]='pictures.systemImageUrl'/></div>
              </div>
-             
              <ul class="preview-thumbnail nav nav-tabs" >
                <li class="active" *ngFor="let picture of pictures"><a  [attr.data-target]="'#pic-' + picture.systemImageID" data-toggle="tab"><img  [src]='picture.systemImageUrl' /></a></li>
                <li *ngFor="let pictures of picturesDeco" ><a [attr.data-target]="'#pic-' + pictures.systemImageID" data-toggle="tab" ><img [src]='pictures.systemImageUrl'/></a></li>
              </ul>
-						
           </div>
           
-    
-
 					<div class="details col-md-6" >
-						<h3 class="product-title">{{productDetail?.name}}</h3>
-						
-						<p class="product-description">{{productDetail?.description}}</p>
-						<h4 class="price">Precio actual: <span>₡ {{productDetail?.lastPrice}}</span></h4>
-   
+            <h3 class="general-letter letter-bold">{{productDetail?.name}}</h3>
+            <br>
+            <p class="general-letter normal-text">{{productDetail?.description}}</p>
+            <br>
+            <h4 class="price">Precio actual: <span>₡ {{productDetail?.lastPrice}}</span></h4>
+            <br>
             <div class="row margin-top">
             <div class="col-md-4">
                 <div class="input-group">
@@ -40,18 +48,45 @@
                 </div>
             </div>
           </div>
-
+           <br>
         			<div class="row action">
                   <div class="col-md-4">
-              <button [routerLink]="['/shopping-cart']" routerLinkActive="router-link-active" (click)="onSubmitProduct()" class="add-to-cart btn btn-default" type="button">Agregar a la compra</button>
+              <button  routerLinkActive="router-link-active" (click)="onSubmitProduct()" class="add-to-cart btn btn-default" type="button">Agregar a la compra</button>
             </div>
             </div>
-            
 					</div>
 				</div>
       </div>
       <br>
   <br>
   </form>
+  <hr class="my-4">
+  
+ <div class="row">
+    <div>
+        <h5 class="general-letter">Productos relacionados</h5>
+   </div>
+ </div>
+  <div class="row">
+      <div id="product-list" class="card col-lg-3 col-md-3 col-xs-3  rounded" *ngFor="let product of productsAll">
+          <a [routerLink]='["/description-product", product.productID]'>              
+          <img [src]='product.systemImageUrl' class="card-img-top img-product img-fluid img-carousel" alt='product.name'> </a>
+          <a [routerLink]='["/description-product", product.productID]'>
+          <div class="card-footer d-flex d-flex justify-content-between">
+            <p class="card-text">{{product.name}}</p>
+            <p class="card-text">₡ {{product.lastPrice}}</p>
+          </div>
+        </a>
+        </div>
+  </div>
+<br>
+<div class="row nav justify-content-end">
+    <p>
+        <a [routerLink]='["/products"]'>Ver más productos</a>
+    </p>
+</div>
   </div> 
   
+
+
+

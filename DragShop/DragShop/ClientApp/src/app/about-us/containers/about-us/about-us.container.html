@@ -1,3 +1,4 @@
+<br>
 <div class="general-letter">
     <label>Usted está en: <i class="fa fa-home" [routerLink]='["/"]'> Inicio</i> / Sobre nosotros</label>
 </div>
@@ -7,21 +8,11 @@
 <div class="row">
     <h1 class="h1dif">Historia de Drag&Shop</h1>
     <hr class="my-4">
-    <div class="letterJust">
-        Drag&Shop es una tienda que nace como acto rebelde ante los estereotipos sociales y
-        discriminatorios, desde que tenemos uso de razón, las personas son juzgadas sin
-        importar sus emociones o deseos, que si una mujer compra una peluca se está quedando
-        calva, que algunas tiendas de zapatos no permiten a un hombre probarselos, que te miran mal
-        si vas a comprar maquillaje y sos varón. Sin embargo, con el tiempo se crearon tiendas físicas que respetan la
-        diversidad, pero aún existe el peligro latente de ser atacado o juzgado si te ven en ellas
-
+    <div class="letterJust" *ngIf="historyData" >
+        {{historyData.companyInformationDescription}}
     </div>
     <div class="letterJust">
-        Así pues, Drag&Shop surge de los deseos más grandes de este grupo de personas y
-        pretende crear un entorno donde todos puedan acceder a los diversos productos que tanto añoran
-        mientras disfrutan de contenido de calidad desde la comodidad de sus hogares; Drag&Shop es
-        por y para los clientes, buscando siempre crecer y encontrar la manera de hacer felices a
-        sus visitantes.</div>
+    </div>
 </div>
 
 <div class="row">
@@ -40,7 +31,7 @@
             </div>
             <div class="slide">
 
-                <img src="assets/img/m3.JPG" style="height: 100%;" width="100%" alt="slide-1" />
+                <img src="assets/img/m3.png" style="height: 100%;" width="100%" alt="slide-1" />
             </div>
         </div>
         <div class="prev-arrow arrow">
@@ -82,7 +73,7 @@
                 <i class="fa fa-arrow-right"></i>
                 <span class="thumb">
 
-                    <img src="assets/img/m3.JPG" style="height: 100%;" width="100%" alt="slide-3-thumb" />
+                    <img src="assets/img/m3.jpg" style="height: 100%;" width="100%" alt="slide-3-thumb" />
                 </span>
             </label>
         </div>
@@ -109,18 +100,20 @@
     <div class="col divPad">
         <h1 class="h1dif">Misión Drag&Shop </h1>
         <hr class="my-4">
-        <div class="letterJust">
-            Ofrecer al cliente el mejor servicio, variedad y calidad de productos Drag en Costa Rica.
-            Donde el valor del producto sea de satisfacción para el cliente.
+        <div class="letterJust" *ngIf="misionData">
+                {{misionData.companyInformationDescription}}
+            <!--Ofrecer al cliente el mejor servicio, variedad y calidad de productos Drag en Costa Rica.
+            Donde el valor del producto sea de satisfacción para el cliente.-->
         </div>
     </div>
 
     <div class="col divPad">
         <h1 class="h1dif">Visión Drag&Shop </h1>
         <hr class="my-4">
-        <div class="letterJust ">
-            En cinco años nos vemos siendo la marca Drag número uno en Costa Rica que elimina barreras,
-            promoviendo la inclusión social y ofreciendo productos de calidad.
+        <div class="letterJust" *ngIf="visionData">
+                {{visionData.companyInformationDescription}}
+            <!--En cinco años nos vemos siendo la marca Drag número uno en Costa Rica que elimina barreras,
+            promoviendo la inclusión social y ofreciendo productos de calidad.-->
         </div>
     </div>
 </div>
