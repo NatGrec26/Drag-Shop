@@ -16,10 +16,10 @@ export class CheckoutFormService extends FormServiceBase {
             lastName: this.fb.control('', [Validators.maxLength(50), Validators.required]),
             email: this.fb.control('', [Validators.required, Validators.email, Validators.maxLength(100)]),
             message: this.fb.control('', [Validators.required, Validators.maxLength(400)]),
-            cardNumber: this.fb.control('', [Validators.required/*, Validators.pattern('[0-9]{4}-[0-9]{4}')*/
-                , Validators.maxLength(19), Validators.minLength(19)]),
-            cvv: this.fb.control('', [Validators.required,
-                Validators.pattern('[0-9]{3}'), Validators.maxLength(3), Validators.minLength(3)]),
+            cardNumber: this.fb.control('', [Validators.required, Validators.pattern('[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}')
+           , Validators.maxLength(19), Validators.minLength(19)]),
+        //    cvv: this.fb.control('', [Validators.required,
+      //          Validators.pattern('[0-9]'), Validators.maxLength(3), Validators.minLength(3)]),
         }));
     }
 }
