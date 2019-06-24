@@ -256,3 +256,8 @@ img
 .divPad{
     padding: 20px;
 }
+
+.justify-content {
+    text-align: justify;
+    text-justify: inter-word;
+}
