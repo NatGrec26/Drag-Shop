@@ -1,14 +1,16 @@
 <br>
-<div class="general-letter">
-    <label>Usted está en: <i class="fa fa-home" [routerLink]='["/"]'> Inicio</i> / Sobre nosotros</label>
-</div>
+<div class="general-letter crumb">
+    <label>Usted está en: <i class="fa fa-home" [routerLink]='["/"]'> 
+    <label class="general-letter"> Inicio</label></i> /
+      Sobre nosotros</label>
+  </div>
 <br>
 <h1 class="page-title general-letter">Sobre Drag&Shop</h1>
 <br>
 <div class="row">
     <h1 class="h1dif">Historia de Drag&Shop</h1>
     <hr class="my-4">
-    <div class="general-letter" *ngIf="historyData" >
+    <div class="general-letter justify-content" *ngIf="historyData" >
         {{historyData.companyInformationDescription}}
     </div>
     <div class="general-letter">
@@ -100,7 +102,7 @@
     <div class="col divPad">
         <h1 class="h1dif general-letter">Misión Drag&Shop </h1>
         <hr class="my-4">
-        <div class="general-letter" *ngIf="misionData">
+        <div class="general-letter justify-content" *ngIf="misionData">
                 {{misionData.companyInformationDescription}}
             <!--Ofrecer al cliente el mejor servicio, variedad y calidad de productos Drag en Costa Rica.
             Donde el valor del producto sea de satisfacción para el cliente.-->
@@ -110,7 +112,7 @@
     <div class="col divPad">
         <h1 class="h1dif general-letter">Visión Drag&Shop </h1>
         <hr class="my-4">
-        <div class="general-letter" *ngIf="visionData">
+        <div class="general-letter justify-content" *ngIf="visionData">
                 {{visionData.companyInformationDescription}}
             <!--En cinco años nos vemos siendo la marca Drag número uno en Costa Rica que elimina barreras,
             promoviendo la inclusión social y ofreciendo productos de calidad.-->
@@ -123,7 +125,7 @@
 <div class="center1">
     <div class="row">
         <div class="col-sm-12">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/TQ04gPb4LlY" frameborder="0"
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4AHnzHIl3yQ" frameborder="0"
                 allow="autoplay; encrypted-media" allowfullscreen>
             </iframe>
 

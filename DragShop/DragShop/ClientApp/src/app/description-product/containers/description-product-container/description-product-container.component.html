@@ -24,7 +24,7 @@
              <ul class="preview-thumbnail nav nav-tabs" >
                <li class="active" *ngFor="let picture of pictures"><a  [attr.data-target]="'#pic-' + picture.systemImageID" data-toggle="tab"><img  [src]='picture.systemImageUrl' /></a></li>
                <li *ngFor="let pictures of picturesDeco" ><a [attr.data-target]="'#pic-' + pictures.systemImageID" data-toggle="tab" ><img [src]='pictures.systemImageUrl'/></a></li>
-             </ul>
+              </ul>
           </div>
           
 					<div class="details col-md-6" >
