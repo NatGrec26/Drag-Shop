@@ -28,6 +28,7 @@ import { DescriptionProductItemFormService } from '../../services/description-pr
 import { ProductService } from '../../../products/services/product.service';
 import { ProductDetail } from '../../models/product-detail.interface';
 import { ProductAll } from 'src/app/products/models/products-all.interface';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-description-product-container',
@@ -62,6 +63,7 @@ export class DescriptionProductContainerComponent implements OnInit {
         private produtsServices: ProductService,
         private routerLink:Router,
         private activeRoute: ActivatedRoute,
+        private sanitizer: DomSanitizer
     ) { }
   
     ngOnInit() {
@@ -107,6 +109,10 @@ export class DescriptionProductContainerComponent implements OnInit {
             data => (this.productsAll = data)
             
           );
+    }
+
+    sanitizeUrl(url: string) {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
 
     getExistingProductSelect(value: SelectProduct) {
