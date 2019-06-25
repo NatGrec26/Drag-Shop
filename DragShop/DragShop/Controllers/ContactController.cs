@@ -13,17 +13,16 @@ namespace DragShop.Controllers
     [Route("api/[controller]")]
     public class ContactController : ApiControllerBase
     {
-        private readonly IConfiguration _configuration;
-        private readonly WebAppSettings _WebAppSettings;
+     //   private readonly WebAppSettings _WebAppSettings;
         private readonly IEmailSender _emailSender;
 
         public ContactController(
-            IConfiguration configuration,
+       //     IConfiguration configuration,
             IEmailSender emailSender
             )
             : base()
         {
-            _WebAppSettings = configuration.Get<WebAppSettings>();
+       //     _WebAppSettings = configuration.Get<WebAppSettings>();
             _emailSender = emailSender;
         }
 
