@@ -14,6 +14,8 @@ import { PictureShop } from '../../models/picture-shop.interface';
 export class ShoppingListComponent implements OnInit {
     public currentQuantity = 50;
     public subtotal = 0;
+    public taxInterface = 0;
+    public sendingCostInterface = 0;
     @Output() sumItem = new EventEmitter<object>();
     @Output() restItem = new EventEmitter<object>();
     @Output() removeItem = new EventEmitter<object>();

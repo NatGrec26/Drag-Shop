@@ -101,7 +101,7 @@ img
     display: block;
     width: 40%;
     height: 45px;
-    background-color: rgba(122,184,0,.8);
+    background-color: #ff9f1a;
     color: #fff;
     line-height: 45px
 }
@@ -255,4 +255,9 @@ img
 
 .divPad{
     padding: 20px;
+}
+
+.justify-content {
+    text-align: justify;
+    text-justify: inter-word;
 }

@@ -24,7 +24,7 @@
       </div>
       <div class="general-letter normal-letter">
         <br>
-        <i class="fa fa-phone fa-lg paddIcon" aria-hidden="true"></i><label>(506)+ 2494-4522</label><br>
+        <i class="fa fa-phone fa-lg paddIcon" aria-hidden="true"></i><label> (506)+ 2494-4621</label><br>
         <div class="divMargin general-letter">
           <div class="container">
             <div class="">
@@ -34,10 +34,12 @@
             </div>
           </div>
         </div>
+        
         <i class="fa fa-envelope fa-lg paddIcon" aria-hidden="true"></i><label>info@drag&shop.com</label><br>
         <i class="fa fa-globe fa-lg paddIcon" aria-hidden="true"></i><label>www.drag&shop.com</label><br>
-        <label><i class="fa fa-map-marker fa-lg paddIcon" aria-hidden="true"></i>Costa Rica, Escazú, Multiplaza Escazú,
-          primer nivel local 159.</label>
+        <label><i class="fa fa-map-marker fa-lg paddIcon" aria-hidden="true"></i>Costa Rica, Escazú, Multiplaza</label>
+      <label class="divMargin"> Escazú,primer nivel local 159.</label>
+
       </div>
       <hr class="my-4">
       <div class="social-icons">
@@ -48,7 +50,17 @@
       </div>
     </div>
     <div class="col-sm-8 card general-letter" style="padding: 3%;">
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="contactForm">
+        <div *ngIf="!serverResponseHandler || !serverResponseHandler.success ">
+          <div *ngIf="serverResponseHandler && !serverResponseHandler.success" class="alert alert-danger">
+            <strong>Fallo!</strong> {{ serverResponseHandler.message }}
+          </div>
+        </div>
+        <div *ngIf="serverResponseHandler && serverResponseHandler.success " class="success">
+          <div class="alert alert-success">
+            <strong>Exitoso!</strong> {{ serverResponseHandler.message }}
+          </div>
+        </div>
         <div class="input-group mb-3">
           <div class="form-group">
             <div class="input-group-prepend">
@@ -86,7 +98,7 @@
           <div *ngIf="contactForm.get('phoneNumber').touched && contactForm.get('phoneNumber').invalid"
             class="invalid-feedback">
             <div *ngIf="contactForm.get('phoneNumber').errors.required">Teléfono es requerido</div>
-            <div *ngIf="contactForm.get('phoneNumber').errors.pattern">Teléfono debe ser valido</div>
+            <div *ngIf="contactForm.get('phoneNumber').errors.pattern">Teléfono debe ser válido</div>
             <div *ngIf="contactForm.get('phoneNumber').errors?.maxlength">Máximo 8 números</div>
           </div>
         </div>
@@ -102,7 +114,7 @@
             </div>
             <div *ngIf="contactForm.get('email').touched && contactForm.get('email').invalid" class="invalid-feedback">
               <div *ngIf="contactForm.get('email').errors.required">Correo es requerido</div>
-              <div *ngIf="contactForm.get('email').errors.email">Correo debe ser valido</div>
+              <div *ngIf="contactForm.get('email').errors.pattern">Correo debe ser valido</div>
               <div *ngIf="contactForm.get('email').errors?.maxlength">Máximo 100 dígitos </div>
             </div>
           </div>
@@ -121,8 +133,9 @@
         </div>
         <div class=container>
           <div class="row float-right">
-            <button type="submit" class="btn btn-block center normal-text " [disabled]="!contactForm.valid">Enviar
-              Mensaje</button>
+            <button (click)="sendEmail()" class="btn center"
+              [disabled]="!contactForm.valid">ENVIAR
+              MENSAJE</button>
             <br>
             <br>
           </div>

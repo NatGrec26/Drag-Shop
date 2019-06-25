@@ -32,7 +32,7 @@ namespace DragShop.Controllers
             return this.Ok(product);
         }
 
-        [HttpGet("productbyId")]
+        [HttpGet("product")]
         public async Task<IActionResult> GetProductAsync()
         {
             var (product, errors) = await this.productRepository.GetProduct();
@@ -45,8 +45,32 @@ namespace DragShop.Controllers
             return this.Ok(product);
         }
 
+        [HttpGet("productHome")]
+        public async Task<IActionResult> GetProductHomeAsync()
+        {
+            var (product, errors) = await this.productRepository.GetProductHome();
+
+            if (errors != null && errors.Any())
+            {
+                return this.ResolveErrorStatusCode(errors.First());
+            }
+
+            return this.Ok(product);
+        }
+   
+
+    [HttpGet("pictures/{productId}/{systemImageTypeId}")]
+    public async Task<IActionResult> GetProductPictures(int productId, int systemImageTypeId)
+    {
+        var (product, errors) = await this.productRepository.GetProductPictures(productId, systemImageTypeId);
+
+        if (errors != null && errors.Any())
+        {
+            return this.ResolveErrorStatusCode(errors.First());
+        }
+
+        return this.Ok(product);
     }
-
-
+}
 }
 

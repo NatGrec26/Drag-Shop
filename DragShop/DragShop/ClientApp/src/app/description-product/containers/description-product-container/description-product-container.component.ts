@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, Params, ParamMap } from '@angular/router';
 import { ProductHome } from '../../../products/models/products-home.interface';
 import { SelectProduct } from '../../models/select-product.interface';
 import { ProductIdService } from '../../services/product-id.service';
@@ -26,137 +26,171 @@ import { Product } from '../../models/product.interface';
 import { FormGroup } from '@angular/forms';
 import { DescriptionProductItemFormService } from '../../services/description-product-item.services';
 import { ProductService } from '../../../products/services/product.service';
+import { ProductDetail } from '../../models/product-detail.interface';
+import { ProductAll } from 'src/app/products/models/products-all.interface';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-description-product-container',
-  templateUrl: './description-product-container.component.html',
-  styleUrls: ['./description-product-container.component.css']
+    selector: 'app-description-product-container',
+    templateUrl: './description-product-container.component.html',
+    styleUrls: ['./description-product-container.component.css']
 })
+
 export class DescriptionProductContainerComponent implements OnInit {
-  public productId: number;
-  picture: Picture[] = null;
-  dataProduct: ProductHome[] = null;
-  public existingData: ExistingProduct;
-  serverResponseHandler: ServerResponseHandler;
-  shoppingDetails$: Observable<ShoppingList>;
-  data: Product = null;
-  detailProductForm: FormGroup;
 
-  public currentQuantity = 1;
-  constructor(
-   private route: ActivatedRoute,
-   private serviceProduct: ProductService,
-   private serviceid: ProductIdService,
-   private shoppingCartService: StoreShoppingCartService,
-   private shoppingCartQuery: ShoppingCartQuery,
-   private servicep: DescriptionPictureService,
-   private serviced: ProductDetailServices,
-   private productDetailItemFormService: DescriptionProductItemFormService,
-  ) { }
+    public productId: number;
+    pictures: Picture[];
+    picturesDeco: Picture[] = null;
+    productDetail: ProductDetail;
+    dataProduct: ProductHome[] = null;
+    public existingData: ExistingProduct;
+    serverResponseHandler: ServerResponseHandler;
+    shoppingDetails$: Observable<ShoppingList>;
+    data: Product = null;
+    detailProductForm: FormGroup;
+    productsAll: ProductAll[];
 
-  ngOnInit() {
-    this.initForm();
-    this.productId = +this.route.snapshot.paramMap.get('value');
-  }
+    public currentQuantity = 1;
+    constructor(
+        private route: ActivatedRoute,
+        private serviceProduct: ProductService,
+        private serviceid: ProductIdService,
+        private shoppingCartService: StoreShoppingCartService,
+        private shoppingCartQuery: ShoppingCartQuery,
+        private servicePictures: DescriptionPictureService,
+        private serviceDetail: ProductDetailServices,
+        private productDetailItemFormService: DescriptionProductItemFormService,
+        private produtsServices: ProductService,
+        private routerLink:Router,
+        private activeRoute: ActivatedRoute,
+        private sanitizer: DomSanitizer
+    ) { }
+  
+    ngOnInit() {
+        // +this.route.snapshot.paramMap.get('value')
+        this.activeRoute.paramMap.subscribe(routeParams => {
+            this.loadData(routeParams);
+        });
+    }
+    
+    loadData(params: ParamMap) {
+        this.initForm();
+        this.productId = +params.get('value');
+        this.getPicture(this.productId);
+        this.getPicturesDeco(this.productId);
+        this.getProductDetail(this.productId);
+        this.loadproduct();
+    }
 
-  initForm() {
-    this.detailProductForm = this.productDetailItemFormService.initForm();
-  }
+    initForm() {
+        this.detailProductForm = this.productDetailItemFormService.initForm();
+    }
 
-
-  getProduct() {
-    this.serviceProduct.getProductsHome()
-        .subscribe(
-            dataProduct => {
-                this.dataProduct = dataProduct;
-            }
-        );
-  }
- 
-  getExistingProductSelect(value: SelectProduct) {
-    this.serviceid.getExistingProduct(this.productId)
-    .subscribe(
-        existingData => {
-            this.existingData = existingData;
-            this.shoppingCartService.addElement(
-                recalculateShoppingDetailQuantities({
-                    id: guid(),
-                    name: existingData.name,
-                    description: existingData.description,
-                    lastPrice: existingData.lastPrice,
-                    state: existingData.state,
-                    tutorial: existingData.tutorial,
-                    productID: existingData.productID,
-                    subtotal: 0,
-                    quantity: value.quantity,
-                })
-
+    getProductDetail(productId: number) {
+        this.serviceDetail.getProducDetails(productId)
+            .subscribe(
+                productDetail => { this.productDetail = productDetail;
+               });
+    }
+    
+    getProduct() {
+        this.serviceProduct.getProductsHome()
+            .subscribe(
+                dataProduct => {
+                    this.dataProduct = dataProduct;
+                }
             );
-            this.serverResponseHandler = createSuccessResponse('Producto agregado al carrito de compras', null);
-            this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
-            console.log(this.shoppingDetails$);
-        },
-        error => {
-            if (error instanceof HttpErrorResponse) {
-                this.handleHttpErrorMessage(error, ' error ');
-            } else {
-                this.serverResponseHandler = createGenericErrorResponse();
-            }
+    }
+
+    loadproduct() {
+        this.produtsServices
+          .getProductHome()
+          .subscribe(
+            data => (this.productsAll = data)
+            
+          );
+    }
+
+    sanitizeUrl(url: string) {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    }
+
+    getExistingProductSelect(value: SelectProduct) {
+
+        this.serviceid.getExistingProduct(this.productId)
+            .subscribe(
+                existingData => {
+                    this.existingData = existingData;
+                    this.shoppingCartService.addElement(
+                        recalculateShoppingDetailQuantities({
+                            id: guid(),
+                            name: existingData.name,
+                            systemImageUrl: existingData.systemImageUrl,
+                            description: existingData.description,
+                            lastPrice: existingData.lastPrice,
+                            state: existingData.state,
+                            tutorial: existingData.tutorial,
+                            productID: existingData.productID,
+                            subtotal: 0,
+                            taxInterface: 0,
+                            sendingCostInterface: 0,
+                            quantity: value.quantity,
+                            tax: existingData.tax,
+                            sendingCost: existingData.sendingCost
+                        })
+
+                    );
+                    this.serverResponseHandler = createSuccessResponse('Producto agregado al carrito de compras', null);
+                    this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
+                },
+                error => {
+                    if (error instanceof HttpErrorResponse) {
+                        this.handleHttpErrorMessage(error, ' error ');
+                    } else {
+                        this.serverResponseHandler = createGenericErrorResponse();
+                    }
+                }
+            );
+        // this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
+    }
+
+    onSubmitProduct() {
+        // if (this.detailProductForm.value > 0) {
+        this.getExistingProductSelect(this.detailProductForm.value);
+        this.routerLink.navigate(['/shopping-cart']);
+        // } else if (this.detailProductForm.value <= "") {
+        //     alert("La cantidad debe ser superior a 0.");
+        // }
+    }
+
+    getPicturesDeco(productId: number) {
+        this.servicePictures.getPictureDeco(productId)
+            .subscribe(
+                picturesDeco => { this.picturesDeco = picturesDeco; });
+    }
+
+
+    getPicture(productId: number) {
+        this.servicePictures.getPicture(productId)
+            .subscribe(
+                pictures => { this.pictures = pictures; });
+    }
+
+    plus() {
+        this.currentQuantity++;
+    }
+    less() {
+        if (this.currentQuantity > 1) {
+            this.currentQuantity--;
         }
-    );
-// this.shoppingDetails$ = this.shoppingCartQuery.selectActive();
-}
-
-onSubmitProduct() {
-  this.getExistingProductSelect(this.detailProductForm.value);
-  console.log(this.detailProductForm.value);
-}
-
-getBeneficted(productID: number) {
-  this.serviced.getProduct(productID)
-      .subscribe(
-          data => {
-              this.data = data;
-          }, error => {
-              if (error instanceof HttpErrorResponse) {
-                  this.handleHttpErrorMessage(error, 'error');
-              } else {
-                  this.serverResponseHandler = createGenericErrorResponse();
-              }
-          }
-      );
-}
-
-getPicture(benefictedId: number) {
-  this.servicep.getPicture(benefictedId)
-      .subscribe(
-          picture => {
-              this.picture = picture;
-          }, error => {
-              if (error instanceof HttpErrorResponse) {
-                  this.handleHttpErrorMessage(error, 'error');
-              } else {
-                  this.serverResponseHandler = createGenericErrorResponse();
-              }
-          }
-      );
-}
-
-  plus() {
-    this.currentQuantity++;
-  }
-  less() {
-    if (this.currentQuantity > 1) {
-      this.currentQuantity--;
     }
-  }
 
 
-  handleHttpErrorMessage(httpErrorResponse: HttpErrorResponse, messagge: string) {
-    if (httpErrorResponse.status === 404) {
-        this.serverResponseHandler = createServerResponseHandler(messagge, false, httpErrorResponse.status, 'error');
-    } else {
-        this.serverResponseHandler = handleDefaultHttpError(httpErrorResponse);
+    handleHttpErrorMessage(httpErrorResponse: HttpErrorResponse, messagge: string) {
+        if (httpErrorResponse.status === 404) {
+            this.serverResponseHandler = createServerResponseHandler(messagge, false, httpErrorResponse.status, 'error');
+        } else {
+            this.serverResponseHandler = handleDefaultHttpError(httpErrorResponse);
+        }
     }
-}
 }

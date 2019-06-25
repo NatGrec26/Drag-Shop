@@ -13,7 +13,7 @@ export class DescriptionProductItemFormService extends FormServiceBase {
 
   initForm(): FormGroup {
     return (this.form = this.fb.group({
-     quantity: this.fb.control('', Validators.required)
+     quantity: this.fb.control('1', Validators.required),
     }));
   }
 }

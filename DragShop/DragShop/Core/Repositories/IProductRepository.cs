@@ -13,5 +13,7 @@ namespace DragShop.Core.Repositories
     {
         Task<(ProductResponseModel, IImmutableList<ErrorDto>)> GetProductById(int productId);
         Task<(IImmutableList<ProductAllResponseModel>, IImmutableList<ErrorDto>)> GetProduct();
+        Task<(IImmutableList<ProductAllResponseModel>, IImmutableList<ErrorDto>)> GetProductHome();
+        Task<(IImmutableList<ProductPicturesResponseModel>, IImmutableList<ErrorDto>)> GetProductPictures(int productId, int systemImageTypeId);
     }
 }

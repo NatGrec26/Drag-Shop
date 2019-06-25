@@ -1,4 +1,5 @@
 export interface Picture {
-    valueAddress: string;
+    systemImageUrl: string;
+    systemImageID: number;
     // pictureTypeId: number;
 }

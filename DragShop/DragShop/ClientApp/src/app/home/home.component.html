@@ -1,3 +1,10 @@
+<br>
+<div class="general-letter crumb">
+  <label>Usted está en: <i class="fa fa-home" [routerLink]='["/"]'> 
+  <label class="general-letter"> Inicio</label></i></label>
+</div>
+<br>
+
 <div class="container">
   <div class="row">
 
@@ -103,11 +110,9 @@
     </div>
   </div>
 
-  <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]='["/about-us"]'>Ver más...</a>
-    </li>
-  </ul>
+  <div class="nav justify-content-end">
+      <a class="nav-link click " [routerLink]='["/about-us"]'>Ver más...</a>
+  </div>
 
   <div class="row container-p">
 
@@ -116,20 +121,23 @@
 
     <div class="row d-flex justify-content-start">
 
-      <div id="product-list" class="card col-lg-3 col-md-4 col-xs-6  rounded" *ngFor="let product of products">
-        <img [src]='product.img' class="card-img-top img-product img-fluid" alt='product.name'>
-        <div class="card-footer d-flex d-flex justify-content-between">
-          <p class="card-text">{{product.name}}</p>
-          <p class="card-text">₡ {{product.price}}</p>
-        </div>
-      </div>
+        <div id="product-list" class="card col-lg-3 col-md-4 col-xs-6  rounded" *ngFor="let product of productsAll">
+            <a [routerLink]='["/description-product", product.productID]'> 
+            <img [src]='product.systemImageUrl' class="card-img-top img-product img-fluid" alt='product.name'> </a>
+            <a [routerLink]='["/description-product", product.productID]'>
+            <div class="card-footer d-flex d-flex justify-content-between">
+              <p class="card-text">{{product.name}}</p>
+              <p class="card-text">₡ {{product.lastPrice}}</p>
+            </div>
+          </a>
+          </div>
 
       
     </div>
   </div>
-  <div class="row">
+  <div class="row nav justify-content-end">
       <p>
-          <a [routerLink]='["/products"]'>>Ver más productos</a>
+          <a [routerLink]='["/products"]'>Ver más productos</a>
       </p>
   </div>
 </div>

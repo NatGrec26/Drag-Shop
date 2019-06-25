@@ -26,4 +26,4 @@ const routes: Routes = [
   providers: [],
   bootstrap: []
 })
-export class ProductsModule{}
+export class ProductsModule {}

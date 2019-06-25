@@ -16,6 +16,8 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 })
 export class ShoppingCartContainerComponent implements OnInit {
     subtotal = 0;
+    texInterface = 0;
+    sendingCostInterface = 0;
     totalProducts = 0;
     dataProduct: ProductHome[] = null;
     orderDetailsActive: ShoppingDetail[] = null;
