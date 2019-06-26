@@ -132,21 +132,21 @@ namespace DragShop
                 .AllowCredentials();
             });
 
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(Configuration.GetValue<string>(AppSettingsConfigKeyConstants.ServerAbsolutePicturesFolder)),
-                RequestPath = Configuration.GetValue<string>(AppSettingsConfigKeyConstants.ServerRelativePicturesFolder),
-                OnPrepareResponse = (context) =>
-                {
-                    // Disable caching for all static files. 
-                    context.Context.Response.Headers["Cache-Control"] =
-                        Configuration["StaticFiles:Headers:Cache-Control"];
-                    context.Context.Response.Headers["Pragma"] =
-                        Configuration["StaticFiles:Headers:Pragma"];
-                    context.Context.Response.Headers["Expires"] =
-                        Configuration["StaticFiles:Headers:Expires"];
-                }
-            });
+            //app.UseStaticFiles(new StaticFileOptions
+            //{
+            //    FileProvider = new PhysicalFileProvider(Configuration.GetValue<string>(AppSettingsConfigKeyConstants.ServerAbsolutePicturesFolder)),
+            //    RequestPath = Configuration.GetValue<string>(AppSettingsConfigKeyConstants.ServerRelativePicturesFolder),
+            //    OnPrepareResponse = (context) =>
+            //    {
+            //        // Disable caching for all static files. 
+            //        context.Context.Response.Headers["Cache-Control"] =
+            //            Configuration["StaticFiles:Headers:Cache-Control"];
+            //        context.Context.Response.Headers["Pragma"] =
+            //            Configuration["StaticFiles:Headers:Pragma"];
+            //        context.Context.Response.Headers["Expires"] =
+            //            Configuration["StaticFiles:Headers:Expires"];
+            //    }
+            //});
 
             app.UseAuthentication();
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));

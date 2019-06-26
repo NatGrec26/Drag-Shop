@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiEndpoint: 'https://localhost:5001/api',
+  production: true,
+  apiEndpoint: 'https://dragshop.azurewebsites.net/api',
 };
 
 
