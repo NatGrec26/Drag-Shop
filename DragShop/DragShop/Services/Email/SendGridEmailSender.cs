@@ -14,7 +14,7 @@ namespace DragShop.Services.Email
 {
     public class SendGridEmailSender : IEmailSender
     {
-        private string sendGridKey = "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";
+        private string sendGridKey = "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";
         public SendGridEmailSender(IOptions<AppSettingsConfigKeyConstants> optionsAccessor)
         {
             Options = optionsAccessor.Value;
@@ -39,7 +39,7 @@ namespace DragShop.Services.Email
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("jhonnyrodriguez214@gmail.com", "Drag&Shop New Password"),
+                From = new EmailAddress("maria.obregon@ucrso.info", "Drag&Shop New Password"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
@@ -64,7 +64,7 @@ namespace DragShop.Services.Email
                 PlainTextContent = message,
                 HtmlContent = message
             };
-            msg.AddTo(new EmailAddress("jhonnyrodriguez214@gmail.com"));
+            msg.AddTo(new EmailAddress("maria.obregon@ucrso.info.com"));
 
             // See https://sendgrid.com/docs/User_Guide/Settings/tracking.html
             msg.SetClickTracking(false, false);
